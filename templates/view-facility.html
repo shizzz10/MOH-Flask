@@ -1,0 +1,367 @@
+{% extends "base.html" %} {% block title %} View Facility Page {% endblock %} {%
+block content %}
+
+<main
+  class="flex px-4 lg:px-8 flex-col gap-8 items-center xl:max-w-[1280px] w-full mt-10 mb-10"
+>
+  <!-- 1st section (hospital & contact info)  -->
+  <div class="flex flex-col lg:flex-row justify-between w-full gap-8 lg:gap-0">
+    <!-- 1col  -->
+    <div
+      class="flex flex-col w-full gap-6 lg:gap-8 lg:w-[47%] border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 lg:h-[690px]"
+    >
+      <!-- img  -->
+      <div
+        class="flex w-[100%] lg:w-[100%] flex-col gap-1 sm:gap-2 items-center"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/hospital.jpg') }}"
+          alt=""
+          class="w-full aspect-[5/2] sm:aspect-[6/3] object-cover rounded-2xl shadow-sm shadow-black/10"
+        />
+        <h2 class="text-lg lg:text-xl font-semibold">Al Ameen Hospital</h2>
+      </div>
+
+      <!-- hospital info  -->
+      <div class="flex flex-col gap-4">
+        <!-- location  -->
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img
+            src="{{ url_for('static', filename='assets/location-dot-solid (1).svg') }}"
+            class="w-6"
+            alt=""
+          />
+          <div class="flex flex-col gap-0.5">
+            <h5 class="font-medium shrink-0 text-start leading-4">Location</h5>
+            <span class="text-sm text-gray-700 text-start leading-4">Taif</span>
+          </div>
+        </div>
+        <!-- License Issuance Date -->
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img
+            src="{{ url_for('static', filename='assets/file-signature-solid.svg') }}"
+            class="w-6"
+            alt=""
+          />
+          <div class="flex flex-col gap-0.5">
+            <h5 class="font-medium shrink-0 text-start leading-4">
+              License Issuance Date
+            </h5>
+            <span class="text-sm text-gray-700 text-start leading-4"
+              >22/12/2024</span
+            >
+          </div>
+        </div>
+        <!-- License Expiry Date -->
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img
+            src="{{ url_for('static', filename='assets/hourglass-half-solid.svg') }}"
+            class="w-6"
+            alt=""
+          />
+          <div class="flex flex-col gap-0.5">
+            <h5 class="font-medium shrink-0 text-start leading-4">
+              License Expiry Date
+            </h5>
+            <span class="text-sm text-gray-700 text-start leading-4"
+              >22/12/2026</span
+            >
+          </div>
+        </div>
+        <!-- Commercial Registration Number -->
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img
+            src="{{ url_for('static', filename='assets/file-invoice-solid.svg') }}"
+            class="w-6"
+            alt=""
+          />
+          <div class="flex flex-col gap-0.5">
+            <h5 class="font-medium shrink-0 text-start leading-4">
+              Commercial Registration Number
+            </h5>
+            <span class="text-sm text-gray-700 text-start leading-4"
+              >12354</span
+            >
+          </div>
+        </div>
+        <!-- License Number -->
+        <div class="flex gap-3 sm:gap-4 items-start">
+          <img
+            src="{{ url_for('static', filename='assets/file-shield-solid.svg') }}"
+            class="w-6"
+            alt=""
+          />
+          <div class="flex flex-col gap-0.5">
+            <h5 class="font-medium shrink-0 text-start leading-4">
+              License Number
+            </h5>
+            <span class="text-sm text-gray-700 text-start leading-4"
+              >12354</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- license status  -->
+      <div class="flex flex-col gap-0 items-center mt-auto">
+        <h5 class="font-medium shrink-0 text-center">License Status</h5>
+        <a
+          href="{{ url_for('index') }}"
+          class="text-center bg-green-500 hover:bg-green-500/80 px-4 lg:px-5 py-1 text-white rounded-xl font-medium text-sm lg:text-base"
+          >Active</a
+        >
+      </div>
+    </div>
+
+    <!-- 2ndcol  -->
+    <div
+      class="flex flex-col justify-between gap-4 w-full lg:w-[47%] lg:h-[690px]"
+    >
+      <!-- 1st row  -->
+      <div
+        class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[47%]"
+      >
+        <h3 class="font-semibold text-lg">Contact Details</h3>
+
+        <!-- contact info  -->
+        <div class="flex flex-col gap-4">
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/user-tie-solid.svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">
+                Owner Name
+              </h5>
+            </div>
+          </div>
+
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/envelope-solid (1).svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">Email</h5>
+            </div>
+          </div>
+
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/tty-solid.svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">
+                Contact Number
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2nd row  -->
+      <div
+        class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[47%]"
+      >
+        <div class="flex flex-col gap-1">
+          <h3 class="font-semibold text-lg">Notes / Comments</h3>
+          <span class="text-sm text-gray-700 text-start leading-4">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
+            consequuntur deserunt adipisci unde perspiciatis nulla nisi nemo et.
+            Excepturi, nesciunt! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Asperiores nam quia harum. Odit culpa eveniet,
+            consequatur adipisci, cumque dolore aut perferendis in voluptate,
+            nemo voluptatem molestias? Deserunt minima consectetur sint, quaerat
+            laborum eveniet. Voluptates dolorum laudantium deserunt cum at
+            obcaecati quidem ipsam enim quam est eveniet fuga, quibusdam
+            perferendis nulla soluta eligendi neque vel architecto porro
+            molestiae!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2nd section (MAP) -->
+  <div class="flex items-center justify-center w-full">
+    <iframe
+      class="w-[100%] lg:w-[100%] aspect-[5/2] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.111478658793!2d40.4094157!3d21.2670544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e98eb5c0d5da2d%3A0xb0c5bf6edb4f8c28!2sAl%20Ameen%20Hospital!5e0!3m2!1sen!2s!4v1740253721057!5m2!1sen!2s"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <!-- 3rd section (general info & Statistics) -->
+  <div class="flex flex-col gap-4">
+    <!-- 1st row  -->
+    <div
+      class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
+    >
+      <h3 class="font-semibold text-lg">General Info</h3>
+
+      <!-- general info  -->
+      <div
+        class="grid grid-cols-2 sm:grid-cols-4 place-items-center gap-4 flex-wrap"
+      >
+        <div class="flex flex-col gap-1">
+          <h5 class="font-medium shrink-0 text-center leading-4">Sector</h5>
+          <span class="text-sm text-gray-700 text-center leading-4"
+            >Private</span
+          >
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <h5 class="font-medium shrink-0 text-center leading-4">Region</h5>
+          <span class="text-sm text-gray-700 text-center leading-4"
+            >Makkah</span
+          >
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <h5 class="font-medium shrink-0 text-center leading-4">
+            Facility Type
+          </h5>
+          <span class="text-sm text-gray-700 text-center leading-4"
+            >Secondary</span
+          >
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <h5 class="font-medium shrink-0 text-center leading-4">Bed Size</h5>
+          <span class="text-sm text-gray-700 text-center leading-4"
+            >120 / NA</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 2nd row general Statistics -->
+    <div
+      class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
+    >
+      <!-- heading  -->
+      <div class="flex justify-between">
+        <h3 class="font-semibold text-lg">General Statistics</h3>
+        <select
+          id="year"
+          name="year"
+          class="w-fit px-1 lg:px-2 py-1 rounded-xl bg-darkmain/60 text-white border border-darkmain focus:ring-2 focus:ring-darkmain text-sm shrink-0 h-fit"
+        >
+          <option value="" selected disabled>Choose Year</option>
+          <option value="">2024</option>
+          <option value="">2023</option>
+          <option value="">2022</option>
+        </select>
+      </div>
+
+      <!-- general Statistics info  -->
+      <div
+        class="flex flex-col-reverse sm:flex-row justify-between items-start gap-4"
+      >
+        <div
+          id="content-hospitals"
+          class="tab-content flex flex-col gap-6 w-full"
+        >
+          <div class="flex flex-col button-slider overflow-hidden">
+            <table
+              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 sm:w-full text-left"
+            >
+              <thead>
+                <tr
+                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
+                >
+                  <th class="">Category</th>
+                  <th class="">Q1</th>
+                  <th class="">Q2</th>
+                  <th class="">Q3</th>
+                  <th class="">Q4</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                <!-- ER Visits -->
+                <tr
+                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+                >
+                  <td class="font-medium">Total ER Visits</td>
+                  <td class="">2,342</td>
+                  <td class="">3,340</td>
+                  <td class="">2,766</td>
+                  <td class="">2,980</td>
+                </tr>
+                <!-- Outpatient Visits -->
+                <tr
+                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+                >
+                  <td class="font-medium">Total Outpatient Visits</td>
+                  <td class="">31,374</td>
+                  <td class="">11,584</td>
+                  <td class="">29,968</td>
+                  <td class="">33,853</td>
+                </tr>
+                <!-- Hospital Discharges -->
+                <tr
+                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+                >
+                  <td class="font-medium">Total Hospital Discharges</td>
+                  <td class="">436</td>
+                  <td class="">375</td>
+                  <td class="">607</td>
+                  <td class="">896</td>
+                </tr>
+                <!-- Specialized Center Visits -->
+                <tr
+                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+                >
+                  <td class="font-medium">Total Specialized Center Visits</td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                </tr>
+                <!-- Primarycare Center Visits -->
+                <tr
+                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+                >
+                  <td class="font-medium">
+                    Total Number of Primarycare Center Visits
+                  </td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                  <td class="">NA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3rd row Patient Experience Score -->
+    <div
+      class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
+    >
+      <h3 class="font-semibold text-lg">Patient Experience Score</h3>
+      <span class="text-sm text-gray-400 text-start leading-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+        recusandae nisi aperiam vitae ipsam enim earum error, est voluptate sunt
+        beatae minima magni assumenda omnis labore ea ducimus unde!
+        Necessitatibus odit dolor, aperiam autem minus nam impedit cupiditate
+        iste iusto dignissimos dolores libero dolorum eos culpa nostrum, placeat
+        quo blanditiis aliquam harum vitae fugiat, tenetur veritatis totam? Enim
+        libero vel quidem facere cumque dolor, pariatur ipsum voluptate
+        similique error laborum.
+      </span>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

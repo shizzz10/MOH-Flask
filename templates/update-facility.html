@@ -1,0 +1,209 @@
+{% extends "base.html" %} {% block title %} Update Facility {% endblock %} {%
+block content %}
+
+<main
+  class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 items-center xl:max-w-[1200px] w-full"
+>
+  <!-- Facility Registration Form -->
+  <form
+    class="flex flex-col gap-6 mt-6 mb-6 sm:mb-2 overflow-hidden border border-light p-5 sm:p-6 lg:p-8 w-[94%] sm:w-[90%] lg:w-[80%] rounded-2xl bg-white shadow-md shadow-black/40 transition-all duration-200 ease-in-out hover:shadow-black/20"
+  >
+    <!-- Heading -->
+    <div class="flex items-start">
+      <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+        Update Facility<br />
+      </h2>
+    </div>
+
+    <!-- Form Fields -->
+    <div class="flex flex-col gap-4">
+      <!-- Facility Name -->
+      <div class="flex flex-col gap-1">
+        <label for="facility_name" class="text-gray-700 font-medium lg:text-lg"
+          >Facility Name</label
+        >
+        <input
+          id="facility_name"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter facility name"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Facility Type -->
+      <div class="flex flex-col gap-1">
+        <label for="facility_type" class="text-gray-700 font-medium lg:text-lg"
+          >Facility Type</label
+        >
+        <select
+          id="facility_type"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain bg-white"
+        >
+          <option value="" selected disabled>Select Facility Type</option>
+          <option value="hospitals">Hospitals</option>
+          <option value="pharmacies">Pharmacies</option>
+          <option value="support_services">Support Services</option>
+          <option value="dental_labs">Dental Labs</option>
+          <option value="laboratories">Laboratories</option>
+          <option value="optics">Optics</option>
+          <option value="private_complexes">Private Complexes</option>
+          <option value="public_complexes">Public Complexes</option>
+        </select>
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- License Number -->
+      <div class="flex flex-col gap-1">
+        <label for="license_number" class="text-gray-700 font-medium lg:text-lg"
+          >License Number</label
+        >
+        <input
+          id="license_number"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter license number"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Commercial Registration Number -->
+      <div class="flex flex-col gap-1">
+        <label
+          for="commercial_number"
+          class="text-gray-700 font-medium lg:text-lg"
+          >Commercial Registration Number</label
+        >
+        <input
+          id="commercial_number"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter commercial registration number"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Approval Type -->
+      <div class="flex flex-col gap-1">
+        <label for="approval_type" class="text-gray-700 font-medium lg:text-lg"
+          >Approval Type</label
+        >
+        <select
+          id="approval_type"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain bg-white"
+        >
+          <option value="" selected disabled>Select Approval Type</option>
+          <option value="initial">Initial</option>
+          <option value="final">Final</option>
+        </select>
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- License Status -->
+      <div class="flex flex-col gap-1">
+        <label for="license_status" class="text-gray-700 font-medium lg:text-lg"
+          >License Status</label
+        >
+        <select
+          id="license_status"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain bg-white"
+        >
+          <option value="" selected disabled>Select License Status</option>
+          <option value="active">Active</option>
+          <option value="expired">Expired</option>
+        </select>
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Owner Name -->
+      <div class="flex flex-col gap-1">
+        <label for="owner_name" class="text-gray-700 font-medium lg:text-lg"
+          >Owner Name</label
+        >
+        <input
+          id="owner_name"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter owner name"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Owner Contact -->
+      <div class="flex flex-col gap-1">
+        <label for="owner_contact" class="text-gray-700 font-medium lg:text-lg"
+          >Owner Contact Number</label
+        >
+        <input
+          id="owner_contact"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter contact number"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Owner Email -->
+      <div class="flex flex-col gap-1">
+        <label for="owner_email" class="text-gray-700 font-medium lg:text-lg"
+          >Owner Email</label
+        >
+        <input
+          id="owner_email"
+          type="email"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter email"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Location -->
+      <div class="flex flex-col gap-1">
+        <label for="location" class="text-gray-700 font-medium lg:text-lg"
+          >Location</label
+        >
+        <input
+          id="location"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter facility location"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Issuance Date -->
+      <div class="flex flex-col gap-1">
+        <label for="issuance_date" class="text-gray-700 font-medium lg:text-lg"
+          >Issuance Date</label
+        >
+        <input
+          id="issuance_date"
+          type="date"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Expiry Date -->
+      <div class="flex flex-col gap-1">
+        <label for="expiry_date" class="text-gray-700 font-medium lg:text-lg"
+          >Expiry Date</label
+        >
+        <input
+          id="expiry_date"
+          type="date"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+    </div>
+
+    <button
+      class="w-full bg-darkmain border border-darkmain hover:bg-white hover:text-darkmain font-medium lg:font-semibold text-white rounded-2xl p-1.5 lg:p-2 text-lg lg:text-xl"
+    >
+      Submit
+    </button>
+  </form>
+</main>
+
+{% endblock %}
