@@ -1,168 +1,264 @@
 {% extends "base.html" %} {% block title %} Admin Home {% endblock %} {% block
 content %}
 
-<main class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 w-full">
+<main class="px-2 lg:px-0 lg:pl-3 flex flex-col gap-8 w-full">
   <!-- sidebar and content -->
   <div class="flex gap-4">
     <!-- sidebar -->
     <div
-      class="hidden c-scrollbar lg:flex flex-col w-80 border-r border-[#E3DEC2] bg-[#f7f6f6] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll"
+      class="hidden c-scrollbar lg:flex flex-col w-80 border-l border-[#E3DEC2] bg-[#f7f6f6] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll"
     >
       <a
         href="{{ url_for('index') }}"
-        class="bg-light p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-darkmain transition-all duration-100 ease-in-out"
+        class="bg-light p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-darkmain transition-all duration-100 ease-in-out items-center"
       >
         <img
           src="{{ url_for('static', filename='assets/grip-vertical-solid.svg') }}"
           class="h-6"
           alt=""
         />
-        <span>Dashboard</span>
+        <span>لوحة التحكم</span>
       </a>
 
-      <a
-        href="{{ url_for('view_facility') }}"
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Hospitals</span>
-      </a>
+      <!-- Healthcare Facilities Accordion -->
+      <div class="accordion-item border-y border-gray-300">
+        <div
+          class="accordion-header hover:bg-light/20 p-5 items-center font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
+        >
+          <img
+            src="{{ url_for('static', filename='assets/stethoscope-solid.svg') }}"
+            class="h-6"
+            alt=""
+          />
+          <span>المرافق الصحية</span>
+          <img
+            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
+            alt="arrow"
+            class="w-3.5 arrow transition-transform duration-300 mr-auto"
+          />
+        </div>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/house-medical-circle-check-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Public Complexes</span>
-      </a>
+        <!-- Accordion Content -->
+        <div
+          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
+        >
+          <a
+            href="{{ url_for('view_facility') }}"
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المستشفيات</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/house-medical-flag-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Private Complexes</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/house-medical-circle-check-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المجمعات العامة</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/eye-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Optics</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/house-medical-flag-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المجمعات الخاصة</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/capsules-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Pharmacy</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/eye-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>البصريات</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/tooth-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Dental Labs</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/capsules-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>الصيدليات</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/flask-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Laboratories</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/tooth-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المختبرات السنية</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/hand-holding-medical-solid (1).svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Support Services</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/flask-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المختبرات</span>
+          </a>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/notes-medical-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Add Facility</span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hand-holding-medical-solid (1).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>خدمات الدعم</span>
+          </a>
+        </div>
+      </div>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/user-plus-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>Register User</span>
-      </a>
+      <!-- Quality Indicators Accordion -->
+      <div class="accordion-item border-y border-gray-300">
+        <div
+          class="accordion-header hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
+        >
+          <img
+            src="{{ url_for('static', filename='assets/ranking-star-solid.svg') }}"
+            class="h-6"
+            alt=""
+          />
+          <span>مؤشرات الجودة</span>
+          <img
+            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
+            alt="arrow"
+            class="w-3.5 arrow transition-transform duration-300 mr-auto"
+          />
+        </div>
 
-      <a
-        href=""
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/file-pen-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span> Edit Form</span>
-      </a>
+        <!-- Accordion Content -->
+        <div
+          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
+        >
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المستشفيات 1</span>
+          </a>
 
-      <a
-        href="{{ url_for('view_facility') }}"
-        class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/hospital-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span> View Hospital Page </span>
-      </a>
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المستشفيات 2</span>
+          </a>
+
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المستشفيات 3</span>
+          </a>
+
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>المستشفيات 4</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- User Management Accordion -->
+      <div class="accordion-item border-y border-gray-300">
+        <div
+          class="accordion-header hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
+        >
+          <img
+            src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"
+            class="h-6"
+            alt=""
+          />
+          <span>إدارة المستخدمين</span>
+          <img
+            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
+            alt="arrow"
+            class="w-3.5 arrow transition-transform duration-300 mr-auto"
+          />
+        </div>
+
+        <!-- Accordion Content -->
+        <div
+          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
+        >
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/user-plus-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>مستخدم جديد</span>
+          </a>
+
+          <a
+            href=""
+            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/users-solid (2).svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>جميع المستخدمين</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Content  -->
@@ -172,25 +268,25 @@ content %}
       <!-- heading  -->
       <div class="flex items-center justify-between gap-6">
         <h2 class="text-2xl sm:text-3xl lg:text-3xl text-lightmain font-bold">
-          Admin Dashboard
+          لوحة تحكم المشرف
         </h2>
         <a
           href="{{ url_for('add_facility') }}"
           class="lg:text-lg font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-darkmain rounded-lg bg-light hover:bg-light/30 shrink-0"
-          >Add Facility</a
+          >إضافة منشأة</a
         >
       </div>
 
-      <!-- tab-button -->
+      <!-- facility info -->
       <div
         class="flex items-center gap-3 sm:gap-5 lg:gap-x-10 xl:gap-x-20 button-slider overflow-hidden sm:flex-wrap 2xl:justify-between"
       >
         <!-- Hospitals  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/100 hover:bg-darkmain/100"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="hospitals"
           >
             <img
@@ -205,35 +301,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Hospitals
+                المستشفيات
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Public Complexes  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="Public-Complexes"
           >
             <img
@@ -248,35 +329,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Public Complexes
+                المجمعات العامة
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Private Complexes -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="Private-Complexes"
           >
             <img
@@ -291,35 +357,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Private Complexes
+                المجمعات الخاصة
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Optics  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="Optics"
           >
             <img
@@ -334,35 +385,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Optics
+                البصريات
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Pharmacy  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="Pharmacies"
           >
             <img
@@ -377,35 +413,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Pharmacies
+                الصيدليات
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Dental Labs  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="dental-labs"
           >
             <img
@@ -420,35 +441,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Dental Labs
+                المختبرات السنية
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Laboratories  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="Laboratories"
           >
             <img
@@ -463,35 +469,20 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Laboratories
+                المختبرات
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
 
         <!-- Support Services  -->
         <div
-          class="bg-darkmain/30 hover:bg-darkmain/70 rounded-2xl w-44 sm:w-48 lg:w-56 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
-            class="tab-btn flex gap-2 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full bg-darkmain/30"
+            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
             data-tab="services"
           >
             <img
@@ -506,678 +497,74 @@ content %}
                 8
               </h5>
               <h5
-                class="flex text-left font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
               >
-                Support Services
+                خدمات الدعم
               </h5>
             </div>
           </button>
-          <div
-            class="flex bg-lightmain hover:bg-lightmain/90 w-full p-1.5 justify-center mt-auto"
-          >
-            <a
-              href="{{ url_for('update_facility') }}"
-              class="text-sm lg:text-base flex gap-4 font-medium"
-            >
-              Update
-              <img
-                src="{{ url_for('static', filename='assets/plus-solid.svg') }}"
-                class="w-3 lg:w-4"
-                alt=""
-              />
-            </a>
-          </div>
         </div>
       </div>
 
-      <!-- tab-content  -->
-      <div class="flex">
-        <!-- tab-content for Hospitals  -->
-        <div
-          id="content-hospitals"
-          class="tab-content flex flex-col gap-6 w-full"
-        >
-          <div class="flex flex-col button-slider overflow-hidden">
-            <table
-              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-            >
-              <thead>
-                <tr
-                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-                >
-                  <th class="">Hopital Name</th>
-                  <th class="">Number of Beds</th>
-                  <th class="">License Status</th>
-                  <th class="">Expiry Date</th>
-                  <th class="">Location</th>
-                  <th class="">Contact</th>
-                  <th class="">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 text-sm font-light">
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Al-Ameen General Hospital</a
-                    >
-                  </td>
-                  <td class="">132</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2024-07-11</td>
-                  <td class="">Taif</td>
-                  <td class="break-all">506700648</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
+      <!-- map -->
 
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Taif Medical Hospital</a
-                    >
-                  </td>
-                  <td class="">20</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2024-12-29</td>
-                  <td class="">Taif</td>
-                  <td class="break-all">505405108</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div
+        class="flex items-center justify-center w-full"
+      >
 
-        <!-- tab-content for Public Complexes  -->
-        <div
-          id="content-Public-Complexes"
-          class="tab-content hidden flex flex-col gap-6 w-full"
-        >
-          <div class="flex flex-col button-slider overflow-hidden">
-            <table
-              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-            >
-              <thead>
-                <tr
-                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-                >
-                  <th class="">Facility Name</th>
-                  <th class="">Owner Name</th>
-                  <th class="">License Status</th>
-                  <th class="">Expiry Date</th>
-                  <th class="">Location</th>
-                  <th class="">Contact</th>
-                  <th class="">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 text-sm font-light">
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Zain Al-Mutairi Medical Complex</a
-                    >
-                  </td>
-                  <td class="">Badr Hassan Mohammed Al-Mutairi</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2028-06-14</td>
-                  <td class="">Rania</td>
-                  <td class="break-all">599997391</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Zain Al-Mutairi Medical Complex</a
-                    >
-                  </td>
-                  <td class="">Badr Hassan Mohammed Al-Mutairi</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2028-06-14</td>
-                  <td class="">Rania</td>
-                  <td class="break-all">599997391</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- tab-content for Private Complexes  -->
-        <div class="flex flex-col button-slider overflow-hidden">
-          <table
-            id="content-Private-Complexes"
-            class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-          >
-            <thead>
-              <tr
-                class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-              >
-                <th class="">Facility Name</th>
-                <th class="">Owner Name</th>
-                <th class="">License Status</th>
-                <th class="">Expiry Date</th>
-                <th class="">Location</th>
-                <th class="">Contact</th>
-                <th class="">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm font-light">
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}"
-                    >Al-Nazir Al-Tawir Specialized Complex</a
-                  >
-                </td>
-                <td class="">Nashir Ali Musfer Al-Adhani</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2024-02-15</td>
-                <td class="">Al-Hurrah</td>
-                <td class="break-all">599991234</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}"
-                    >Al-Nazir Al-Tawir Specialized Complex</a
-                  >
-                </td>
-                <td class="">Nashir Ali Musfer Al-Adhani</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2024-02-15</td>
-                <td class="">Al-Hurrah</td>
-                <td class="break-all">599991234</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- tab-content for Optics  -->
-        <div class="flex flex-col button-slider overflow-hidden">
-          <table
-            id="content-Optics"
-            class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-          >
-            <thead>
-              <tr
-                class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-              >
-                <th class="">Facility Name</th>
-                <th class="">Owner Name</th>
-                <th class="">License Status</th>
-                <th class="">Expiry Date</th>
-                <th class="">Location</th>
-                <th class="">Contact</th>
-                <th class="">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm font-light">
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}">
-                    Al-Basarat City Optical Store - Branch 1</a
-                  >
-                </td>
-                <td class="">Mohammed Hariz Al-Hazmi Company</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2026-09-19</td>
-                <td class="">Taif</td>
-                <td class="break-all">555555101</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}">
-                    Al-Basarat City Optical Store - Branch 1</a
-                  >
-                </td>
-                <td class="">Mohammed Hariz Al-Hazmi Company</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2026-09-19</td>
-                <td class="">Taif</td>
-                <td class="break-all">555555101</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- tab-content for Pharmacies  -->
-        <div
-          class="flex tab-content hidden flex-col gap-6 w-full overflow-hidden"
-          id="content-Pharmacies"
-        >
-          <div class="flex flex-col button-slider overflow-hidden">
-            <table
-              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-            >
-              <thead>
-                <tr
-                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-                >
-                  <th class="">Facility Name</th>
-                  <th class="">Owner Name</th>
-                  <th class="">License Status</th>
-                  <th class="">Expiry Date</th>
-                  <th class="">Location</th>
-                  <th class="">Contact</th>
-                  <th class="">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 text-sm font-light">
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Al-Qadr Pharmacy No. 3</a
-                    >
-                  </td>
-                  <td class="">Nayef Farhan Al-Dosari</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2027-07-17</td>
-                  <td class="">Rania</td>
-                  <td class="break-all">508742428</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Al-Qadr Pharmacy No. 3</a
-                    >
-                  </td>
-                  <td class="">Nayef Farhan Al-Dosari</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2027-07-17</td>
-                  <td class="">Rania</td>
-                  <td class="break-all">508742428</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- tab-content for Dental Labs  -->
-        <div class="flex flex-col button-slider overflow-hidden">
-          <table
-            id="content-dental-labs"
-            class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-          >
-            <thead>
-              <tr
-                class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-              >
-                <th class="">Facility Name</th>
-                <th class="">Owner Name</th>
-                <th class="">License Status</th>
-                <th class="">Expiry Date</th>
-                <th class="">Location</th>
-                <th class="">Contact</th>
-                <th class="">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm font-light">
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}">Lulu Dental Lab</a>
-                </td>
-                <td class="">Ziyad Mohammed Hassan Al-Thaqafi</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2025-11-18</td>
-                <td class="">Taif</td>
-                <td class="break-all">551134209</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}">Lulu Dental Lab</a>
-                </td>
-                <td class="">Ziyad Mohammed Hassan Al-Thaqafi</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2025-11-18</td>
-                <td class="">Taif</td>
-                <td class="break-all">551134209</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- tab-content for Laboratories  -->
-        <div
-          class="flex tab-content hidden flex-col gap-6 w-full overflow-hidden"
-          id="content-Laboratories"
-        >
-          <div class="flex flex-col button-slider overflow-hidden">
-            <table
-              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-            >
-              <thead>
-                <tr
-                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-                >
-                  <th class="">Facility Name</th>
-                  <th class="">Owner Name</th>
-                  <th class="">License Status</th>
-                  <th class="">Expiry Date</th>
-                  <th class="">Location</th>
-                  <th class="">Contact</th>
-                  <th class="">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 text-sm font-light">
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Al-Ruwad Medical Analysis Laboratory (Independent
-                      General)</a
-                    >
-                  </td>
-                  <td class="">Al-Ruwad Medical Analysis Company</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2026-08-31</td>
-                  <td class="">Taif</td>
-                  <td class="break-all">512345678</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="underline">
-                    <a href="{{ url_for('view_facility') }}"
-                      >Al-Ruwad Medical Analysis Laboratory (Independent
-                      General)</a
-                    >
-                  </td>
-                  <td class="">Al-Ruwad Medical Analysis Company</td>
-                  <td class="">
-                    <span
-                      class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                      >Active</span
-                    >
-                  </td>
-                  <td class="break-all">2026-08-31</td>
-                  <td class="">Taif</td>
-                  <td class="break-all">512345678</td>
-                  <td class="flex flex-col gap-2">
-                    <a href="#" class="text-red-500 hover:underline">Delete</a>
-                    <a
-                      href="{{ url_for('view_facility') }}"
-                      class="text-blue-500 hover:underline"
-                      >Edit</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- tab-content for Support Services  -->
-        <div class="flex flex-col button-slider overflow-hidden">
-          <table
-            id="content-services"
-            class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-left"
-          >
-            <thead>
-              <tr
-                class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-              >
-                <th class="">Facility Name</th>
-                <th class="">Owner Name</th>
-                <th class="">License Status</th>
-                <th class="">Expiry Date</th>
-                <th class="">Location</th>
-                <th class="">Contact</th>
-                <th class="">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-600 text-sm font-light">
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}"
-                    >Association of Kidney Disease &amp; Dialysis Patients</a
-                  >
-                </td>
-                <td class="">Abdullah Nasser Saleh Lafi' Al-Faraj</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2027-08-18</td>
-                <td class="">Taif</td>
-                <td class="break-all">53537313</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-              <tr
-                class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-7 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-              >
-                <td class="underline">
-                  <a href="{{ url_for('view_facility') }}"
-                    >Association of Kidney Disease &amp; Dialysis Patients</a
-                  >
-                </td>
-                <td class="">Abdullah Nasser Saleh Lafi' Al-Faraj</td>
-                <td class="">
-                  <span
-                    class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs"
-                    >Active</span
-                  >
-                </td>
-                <td class="break-all">2027-08-18</td>
-                <td class="">Taif</td>
-                <td class="break-all">53537313</td>
-                <td class="flex flex-col gap-2">
-                  <a href="#" class="text-red-500 hover:underline">Delete</a>
-                  <a
-                    href="{{ url_for('view_facility') }}"
-                    class="text-blue-500 hover:underline"
-                    >Edit</a
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <iframe   class="w-[100%] lg:w-[100%] aspect-[5/2] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d363843.9864496753!2d40.29590603500833!3d21.38904559651173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTaif%20hospials!5e0!3m2!1sen!2s!4v1741219023101!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">></iframe>
       </div>
 
-     
+      <!-- Designed by  -->
+      <div class="flex gap-0.5 items-center justify-end text-sm lg:text-base">
+        <span class="font-semibold text-lightmain">
+          تصميم:
+        </span>
+      
+        <h6 class="font-semibold text-darkmain">
+          د. سامية المطيري
+        </h6>
+      </div>
+
+
     </div>
   </div>
 </main>
 
 <script>
+  // Accordion & Its Animation
+  const accordionHeader = document.querySelectorAll(".accordion-header");
+  accordionHeader.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector(".arrow");
+
+      if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          content.classList.add("opacity-100", "scale-y-100");
+          content.classList.remove("opacity-0", "scale-y-0");
+        });
+      } else {
+        // Start collapsing animation
+        content.classList.add("opacity-0", "scale-y-0");
+        content.classList.remove("opacity-100", "scale-y-100");
+
+        // Wait for the animation to complete before adding 'hidden'
+        content.addEventListener(
+          "transitionend",
+          () => {
+            content.classList.add("hidden");
+          },
+          { once: true }
+        );
+      }
+
+      // Rotate the arrow
+      arrow.classList.toggle("rotate-180");
+    });
+  });
+
   const buttons = document.querySelectorAll(".tab-btn");
   const contents = document.querySelectorAll(".tab-content");
   const container = document.querySelector(".button-slider"); // Parent container
