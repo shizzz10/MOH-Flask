@@ -235,8 +235,8 @@
               class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
             >
               <a
-                href=""
-                class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+                href="{{ url_for('view_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('view_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
               >
                 <img
                   src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
@@ -247,7 +247,7 @@
               </a>
 
               <a
-                href=""
+                href="{{ url_for('view_facility') }}"
                 class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
               >
                 <img
@@ -259,7 +259,7 @@
               </a>
 
               <a
-                href=""
+                href="{{ url_for('view_facility') }}"
                 class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
               >
                 <img
@@ -271,7 +271,7 @@
               </a>
 
               <a
-                href=""
+                href="{{ url_for('view_facility') }}"
                 class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
               >
                 <img

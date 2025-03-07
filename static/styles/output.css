@@ -524,9 +524,6 @@
   }
 }
 @layer utilities {
-  .collapse {
-    visibility: collapse;
-  }
   .absolute {
     position: absolute;
   }
@@ -545,9 +542,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
@@ -562,9 +556,6 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
-  }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -623,9 +614,6 @@
   .inline-flex {
     display: inline-flex;
   }
-  .list-item {
-    display: list-item;
-  }
   .table {
     display: table;
   }
@@ -637,9 +625,6 @@
   }
   .aspect-\[7\/4\] {
     aspect-ratio: 7/4;
-  }
-  .h-0 {
-    height: calc(var(--spacing) * 0);
   }
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
@@ -667,9 +652,6 @@
   }
   .h-full {
     height: 100%;
-  }
-  .w-3 {
-    width: calc(var(--spacing) * 3);
   }
   .w-3\.5 {
     width: calc(var(--spacing) * 3.5);
@@ -719,14 +701,8 @@
   .w-full {
     width: 100%;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .origin-center {
     transform-origin: center;
@@ -734,20 +710,12 @@
   .origin-top {
     transform-origin: top;
   }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-full {
     --tw-translate-x: -100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -770,9 +738,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -959,9 +924,6 @@
   .bg-green-200\/20 {
     background-color: color-mix(in oklab, var(--color-green-200) 20%, transparent);
   }
-  .bg-green-300 {
-    background-color: var(--color-green-300);
-  }
   .bg-green-300\/60 {
     background-color: color-mix(in oklab, var(--color-green-300) 60%, transparent);
   }
@@ -970,12 +932,6 @@
   }
   .bg-light {
     background-color: var(--color-light);
-  }
-  .bg-light\/20 {
-    background-color: color-mix(in oklab, var(--color-light) 20%, transparent);
-  }
-  .bg-red-300 {
-    background-color: var(--color-red-300);
   }
   .bg-red-300\/60 {
     background-color: color-mix(in oklab, var(--color-red-300) 60%, transparent);
@@ -1027,9 +983,6 @@
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
-  }
-  .py-0 {
-    padding-block: calc(var(--spacing) * 0);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
@@ -1099,10 +1052,6 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-  .leading-2 {
-    --tw-leading: calc(var(--spacing) * 2);
-    line-height: calc(var(--spacing) * 2);
   }
   .leading-4 {
     --tw-leading: calc(var(--spacing) * 4);
@@ -1212,9 +1161,6 @@
   .shadow-\[\#958a5f\]\/50 {
     --tw-shadow-color: color-mix(in oklab, #958a5f 50%, transparent);
   }
-  .shadow-black {
-    --tw-shadow-color: var(--color-black);
-  }
   .shadow-black\/10 {
     --tw-shadow-color: color-mix(in oklab, var(--color-black) 10%, transparent);
   }
@@ -1227,21 +1173,11 @@
   .shadow-black\/40 {
     --tw-shadow-color: color-mix(in oklab, var(--color-black) 40%, transparent);
   }
-  .shadow-darkmain {
-    --tw-shadow-color: var(--color-darkmain);
-  }
   .shadow-darkmain\/40 {
     --tw-shadow-color: color-mix(in oklab, var(--color-darkmain) 40%, transparent);
   }
-  .shadow-lightmain {
-    --tw-shadow-color: var(--color-lightmain);
-  }
   .shadow-lightmain\/20 {
     --tw-shadow-color: color-mix(in oklab, var(--color-lightmain) 20%, transparent);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .transition-all {
     transition-property: all;
@@ -2163,11 +2099,6 @@ body {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -2175,4 +2106,9 @@ body {
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
