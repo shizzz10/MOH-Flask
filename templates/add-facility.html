@@ -2,7 +2,7 @@
 content %}
 
 <main
-dir="ltr"
+  dir="ltr"
   class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 items-center xl:max-w-[1200px] w-full"
 >
   <!-- Facility Registration Form -->
@@ -34,20 +34,50 @@ dir="ltr"
 
       <!-- Map Location -->
       <div class="flex flex-col gap-1">
-        <label class="form-label text-gray-700 font-medium lg:text-lg">Hospital Location/موقع المستشفى</label>
-        <div id="hospitalMap"  class="w-[100%] lg:w-[100%] aspect-[5/3] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20"></div>
-        <small class="text-muted text-red-300 leading-4 text-sm lg:text-base">Click on the map to set the hospital location or enter coordinates manually</small>
+        <label class="form-label text-gray-700 font-medium lg:text-lg"
+          >Hospital Location/موقع المستشفى</label
+        >
+        <div
+          id="hospitalMap"
+          class="w-[100%] lg:w-[100%] aspect-[5/3] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20"
+        ></div>
+        <small class="text-muted text-red-300 leading-4 text-sm lg:text-base"
+          >Click on the map to set the hospital location or enter coordinates
+          manually</small
+        >
         <div class="flex flex-col sm:flex-row sm:justify-between gap-2">
-            <div class="col-md-6">
-                <label class="form-label text-gray-700 font-medium lg:text-lg" for="latitude">Latitude</label>
-                <input class="form-control border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain" id="latitude" name="latitude" required type="text" value="37.7749">
-            </div>
-            <div class="col-md-6">
-                <label class="form-label text-gray-700 font-medium lg:text-lg" for="longitude">Longitude</label>
-                <input class="form-control border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain" id="longitude" name="longitude" required type="text" value="-122.4194">
-            </div>
+          <div class="col-md-6">
+            <label
+              class="form-label text-gray-700 font-medium lg:text-lg"
+              for="latitude"
+              >Latitude</label
+            >
+            <input
+              class="form-control border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              id="latitude"
+              name="latitude"
+              required
+              type="text"
+              value="37.7749"
+            />
+          </div>
+          <div class="col-md-6">
+            <label
+              class="form-label text-gray-700 font-medium lg:text-lg"
+              for="longitude"
+              >Longitude</label
+            >
+            <input
+              class="form-control border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              id="longitude"
+              name="longitude"
+              required
+              type="text"
+              value="-122.4194"
+            />
+          </div>
         </div>
-    </div>
+      </div>
 
       <!-- Facility Name -->
       <div class="flex flex-col gap-1">
@@ -236,75 +266,68 @@ dir="ltr"
       Submit
     </button>
   </form>
-
-  
-
 </main>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const map = L.map('hospitalMap').setView([37.7749, -122.4194], 13);
-      let marker;
-  
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
-      }).addTo(map);
-  
-      // Get the form fields
-      const latField = document.getElementById('latitude');
-      const lngField = document.getElementById('longitude');
-  
-      // Function to update marker position
-      function updateMarker(lat, lng) {
-          if (marker) {
-              map.removeLayer(marker);
-          }
-          marker = L.marker([lat, lng]).addTo(map);
-          map.setView([lat, lng], 13);
+  document.addEventListener("DOMContentLoaded", function () {
+    const map = L.map("hospitalMap").setView([37.7749, -122.4194], 13);
+    let marker;
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(map);
+
+    // Get the form fields
+    const latField = document.getElementById("latitude");
+    const lngField = document.getElementById("longitude");
+
+    // Function to update marker position
+    function updateMarker(lat, lng) {
+      if (marker) {
+        map.removeLayer(marker);
       }
-  
-      // If we have existing coordinates, show them
+      marker = L.marker([lat, lng]).addTo(map);
+      map.setView([lat, lng], 13);
+    }
+
+    // If we have existing coordinates, show them
+    if (latField.value && lngField.value) {
+      const lat = parseFloat(latField.value);
+      const lng = parseFloat(lngField.value);
+      updateMarker(lat, lng);
+    }
+
+    // Map click event
+    map.on("click", function (e) {
+      latField.value = e.latlng.lat.toFixed(6);
+      lngField.value = e.latlng.lng.toFixed(6);
+      updateMarker(e.latlng.lat, e.latlng.lng);
+    });
+
+    // Input field change events
+    latField.addEventListener("change", function () {
       if (latField.value && lngField.value) {
-          const lat = parseFloat(latField.value);
-          const lng = parseFloat(lngField.value);
+        const lat = parseFloat(latField.value);
+        const lng = parseFloat(lngField.value);
+        if (!isNaN(lat) && !isNaN(lng)) {
           updateMarker(lat, lng);
+        }
       }
-  
-      // Map click event
-      map.on('click', function(e) {
-          latField.value = e.latlng.lat.toFixed(6);
-          lngField.value = e.latlng.lng.toFixed(6);
-          updateMarker(e.latlng.lat, e.latlng.lng);
-      });
-  
-      // Input field change events
-      latField.addEventListener('change', function() {
-          if (latField.value && lngField.value) {
-              const lat = parseFloat(latField.value);
-              const lng = parseFloat(lngField.value);
-              if (!isNaN(lat) && !isNaN(lng)) {
-                  updateMarker(lat, lng);
-              }
-          }
-      });
-  
-      lngField.addEventListener('change', function() {
-          if (latField.value && lngField.value) {
-              const lat = parseFloat(latField.value);
-              const lng = parseFloat(lngField.value);
-              if (!isNaN(lat) && !isNaN(lng)) {
-                  updateMarker(lat, lng);
-              }
-          }
-      });
+    });
+
+    lngField.addEventListener("change", function () {
+      if (latField.value && lngField.value) {
+        const lat = parseFloat(latField.value);
+        const lng = parseFloat(lngField.value);
+        if (!isNaN(lat) && !isNaN(lng)) {
+          updateMarker(lat, lng);
+        }
+      }
+    });
   });
-  </script>
-
-
+</script>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="/static/js/main.js"></script>
-
 
 {% endblock %}

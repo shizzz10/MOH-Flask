@@ -1,284 +1,263 @@
-{% extends "base_dashboard.html" %} {% block title %} Admin Home {% endblock %} {% block
-content %}
+{% extends "base_dashboard.html" %} {% block title %} Admin Home {% endblock %}
+{% block content %}
 
-
-
-    <!-- Content  -->
-    <div
-      class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden p-1"
+<!-- Content  -->
+<div
+  class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden p-1"
+>
+  <!-- heading  -->
+  <div class="flex items-center justify-between gap-6">
+    <h2 class="text-2xl sm:text-3xl lg:text-3xl text-lightmain font-bold">
+      لوحة تحكم المشرف/Admin Dashboard
+    </h2>
+    <a
+      href="{{ url_for('add_facility') }}"
+      class="lg:text-lg font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-darkmain rounded-lg bg-light hover:bg-light/30 shrink-0"
+      >إضافة منشأة</a
     >
-      <!-- heading  -->
-      <div class="flex items-center justify-between gap-6">
-        <h2 class="text-2xl sm:text-3xl lg:text-3xl text-lightmain font-bold">
-          لوحة تحكم المشرف/Admin Dashboard
-        </h2>
-        <a
-          href="{{ url_for('add_facility') }}"
-          class="lg:text-lg font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-darkmain rounded-lg bg-light hover:bg-light/30 shrink-0"
-          >إضافة منشأة</a
-        >
-      </div>
+  </div>
 
-      <!-- facility info -->
-      <div
-        class="flex items-center gap-3 sm:gap-5 lg:gap-x-10 xl:gap-x-20 button-slider overflow-hidden sm:flex-wrap 2xl:justify-between"
+  <!-- facility info -->
+  <div
+    class="flex items-center gap-3 sm:gap-5 lg:gap-x-10 xl:gap-x-20 button-slider overflow-hidden sm:flex-wrap 2xl:justify-between"
+  >
+    <!-- Hospitals  -->
+    <a
+      href="{{ url_for('hospital_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="hospitals"
       >
-        <!-- Hospitals  -->
-        <a
-        href="{{ url_for('hospital_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="hospitals"
+        <img
+          src="{{ url_for('static', filename='assets/hospital-solid (1).svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            4
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
           >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (1).svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-                4
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                المستشفيات
-              </h5>
-            </div>
-          </button>
-        </a>
+            المستشفيات
+          </h5>
+        </div>
+      </button>
+    </a>
 
-        <!-- Public Complexes  -->
-        <a
-        href="{{ url_for('public_complex_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="Public-Complexes"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/house-medical-circle-check-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-                61
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                المجمعات العامة
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Private Complexes -->
-        <a
-        href="{{ url_for('private_complex_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="Private-Complexes"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/house-medical-flag-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-              67
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                المجمعات الخاصة
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Optics  -->
-        <a
-        href="{{ url_for('optic_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="Optics"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/eye-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-               59
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                البصريات
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Pharmacy  -->
-        <a
-        href="{{ url_for('pharmacy_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="Pharmacies"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/capsules-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-                303
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                الصيدليات
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Dental Labs  -->
-        <a
-        href="{{ url_for('dental_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="dental-labs"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/tooth-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-               5
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                المختبرات السنية
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Laboratories  -->
-        <a
-        href="{{ url_for('laboratories_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="Laboratories"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/flask-vial-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-               11
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                المختبرات
-              </h5>
-            </div>
-          </button>
-        </a>
-
-        <!-- Support Services  -->
-        <a
-        href="{{ url_for('support_services_facility') }}"
-          class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
-        >
-          <button
-            class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
-            data-tab="services"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hand-holding-medical-solid.svg') }}"
-              class="w-7 sm:w-9 lg:w-10 flex"
-              alt=""
-            />
-            <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
-              <h5
-                class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
-              >
-                13
-              </h5>
-              <h5
-                class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
-              >
-                خدمات الدعم
-              </h5>
-            </div>
-          </button>
-        </a>
-      </div>
-
-      <!-- map -->
-
-      <div
-        class="flex items-center justify-center w-full"
+    <!-- Public Complexes  -->
+    <a
+      href="{{ url_for('public_complex_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="Public-Complexes"
       >
+        <img
+          src="{{ url_for('static', filename='assets/house-medical-circle-check-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            61
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            المجمعات العامة
+          </h5>
+        </div>
+      </button>
+    </a>
 
-        <iframe   class="w-[100%] lg:w-[100%] aspect-[5/2] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d363843.9864496753!2d40.29590603500833!3d21.38904559651173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTaif%20hospials!5e0!3m2!1sen!2s!4v1741219023101!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">></iframe>
-      </div>
+    <!-- Private Complexes -->
+    <a
+      href="{{ url_for('private_complex_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="Private-Complexes"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/house-medical-flag-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            67
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            المجمعات الخاصة
+          </h5>
+        </div>
+      </button>
+    </a>
 
-      <!-- Designed by  -->
-      <div class="flex gap-0.5 items-center justify-end text-sm lg:text-base">
-        <span class="font-semibold text-lightmain">
-          تصميم:
-        </span>
-      
-        <h6 class="font-semibold text-darkmain">
-          د. سامية المطيري
-        </h6>
-      </div>
+    <!-- Optics  -->
+    <a
+      href="{{ url_for('optic_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="Optics"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/eye-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            59
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            البصريات
+          </h5>
+        </div>
+      </button>
+    </a>
 
+    <!-- Pharmacy  -->
+    <a
+      href="{{ url_for('pharmacy_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="Pharmacies"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/capsules-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            303
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            الصيدليات
+          </h5>
+        </div>
+      </button>
+    </a>
 
-    </div>
+    <!-- Dental Labs  -->
+    <a
+      href="{{ url_for('dental_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="dental-labs"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/tooth-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            5
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            المختبرات السنية
+          </h5>
+        </div>
+      </button>
+    </a>
 
+    <!-- Laboratories  -->
+    <a
+      href="{{ url_for('laboratories_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="Laboratories"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/flask-vial-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            11
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            المختبرات
+          </h5>
+        </div>
+      </button>
+    </a>
 
+    <!-- Support Services  -->
+    <a
+      href="{{ url_for('support_services_facility') }}"
+      class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
+    >
+      <button
+        class="flex gap-2 sm:gap-3 items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full"
+        data-tab="services"
+      >
+        <img
+          src="{{ url_for('static', filename='assets/hand-holding-medical-solid.svg') }}"
+          class="w-7 sm:w-9 lg:w-10 flex"
+          alt=""
+        />
+        <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+          <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">
+            13
+          </h5>
+          <h5
+            class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
+          >
+            خدمات الدعم
+          </h5>
+        </div>
+      </button>
+    </a>
+  </div>
+
+  <!-- map -->
+
+  <div class="flex items-center justify-center w-full">
+    <iframe
+      class="w-[100%] lg:w-[100%] aspect-[5/2] lg:aspect-[6/2] object-cover rounded-xl shadow-sm shadow-black/20"
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d363843.9864496753!2d40.29590603500833!3d21.38904559651173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTaif%20hospials!5e0!3m2!1sen!2s!4v1741219023101!5m2!1sen!2s"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      >></iframe
+    >
+  </div>
+
+  <!-- Designed by  -->
+  <div class="flex gap-0.5 items-center justify-end text-sm lg:text-base">
+    <span class="font-semibold text-lightmain"> تصميم: </span>
+
+    <h6 class="font-semibold text-darkmain">د. سامية المطيري</h6>
+  </div>
+</div>
 
 {% endblock %}

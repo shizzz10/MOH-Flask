@@ -1,0 +1,163 @@
+{% extends "base_dashboard.html" %} {% block title %} Registerd Users {%
+endblock %} {% block content %}
+
+<!-- Content  -->
+<div
+  class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden p-1"
+>
+  <!-- heading  -->
+  <div class="flex items-center justify-between gap-6">
+    <h2 class="text-2xl sm:text-3xl lg:text-3xl text-lightmain font-bold">
+      المستخدمين/Users
+    </h2>
+    <a
+      href="{{ url_for('add_user') }}"
+      class="lg:text-lg font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-darkmain rounded-lg bg-light hover:bg-light/30 shrink-0"
+      >إضافة مستخدم</a
+    >
+  </div>
+
+  <!-- search bar  -->
+
+  <div class="flex items-center justify-center relative w-[100%]">
+    <input
+      type="text"
+      placeholder="البحث حسب اسم المستشفى"
+      class="w-full border border-lightmain rounded-4xl pl-8 p-2 text-black focus-visible:outline-darkmain"
+    />
+    <img
+      src="{{ url_for('static', filename='assets/search.svg') }}"
+      class="w-5 absolute top-1/2 transform -translate-y-1/2 left-2"
+      alt=""
+    />
+  </div>
+
+  <!-- table -->
+  <div class="flex button-slider">
+    <table
+      id="content-Private-Complexes"
+      class="tab-content bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full text-right"
+    >
+      <thead>
+        <tr
+          class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
+        >
+          <th class="">الاسم</th>
+          <th class="">اسم المستخدم</th>
+          <th class="">اسم المستشفى</th>
+          <th class="">الاتصال</th>
+          <th class="">الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        <tr
+          class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+        >
+          <td class="">عمر الفارسي</td>
+          <td class="break-all">Omar_Farsi89</td>
+          <td class="">مستشفى الأمين العام</td>
+          <td class="break-all">599991234</td>
+          <td class="flex flex-col gap-2">
+            <a href="#" class="text-red-500 hover:underline">حذف</a>
+            <a href="" class="text-blue-500 hover:underline">تعديل</a>
+            <a href="#" class="text-green-500 hover:underline leading-4"
+              >إعادة تعيين كلمة المرور</a
+            >
+          </td>
+        </tr>
+        <tr
+          class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+        >
+          <td class="">المنصوري</td>
+          <td class="break-all">Layla_Mansouri22</td>
+          <td class="">مستشفى الأمين العام</td>
+          <td class="break-all">599991234</td>
+          <td class="flex flex-col gap-2">
+            <a href="#" class="text-red-500 hover:underline">حذف</a>
+            <a href="" class="text-blue-500 hover:underline">تعديل</a>
+            <a href="#" class="text-green-500 hover:underline leading-4"
+              >إعادة تعيين كلمة المرور</a
+            >
+          </td>
+        </tr>
+        <tr
+          class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+        >
+          <td class="">عمر الفارسي</td>
+          <td class="break-all">Omar_Farsi89</td>
+          <td class="">مستشفى الأمين العام</td>
+          <td class="break-all">599991234</td>
+          <td class="flex flex-col gap-2">
+            <a href="#" class="text-red-500 hover:underline">حذف</a>
+            <a href="" class="text-blue-500 hover:underline">تعديل</a>
+            <a href="#" class="text-green-500 hover:underline leading-4"
+              >إعادة تعيين كلمة المرور</a
+            >
+          </td>
+        </tr>
+        <tr
+          class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+        >
+          <td class="">المنصوري</td>
+          <td class="break-all">Layla_Mansouri22</td>
+          <td class="">مستشفى الأمين العام</td>
+          <td class="break-all">599991234</td>
+          <td class="flex flex-col gap-2">
+            <a href="#" class="text-red-500 hover:underline">حذف</a>
+            <a href="" class="text-blue-500 hover:underline">تعديل</a>
+            <a href="#" class="text-green-500 hover:underline leading-4"
+              >إعادة تعيين كلمة المرور</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+  // Data for the pie chart
+  const data = {
+    labels: ["Active", "Expired"], // Only two labels
+    datasets: [
+      {
+        label: "Status",
+        data: [80, 20], // Example data: 80% Active, 20% Expired
+        backgroundColor: [
+          "#28d784", // Green for Active
+          "#da252f", // Red for Expired
+        ],
+        borderColor: [
+          "#28d784", // Border color for Active
+          "#da252f", // Border color for Expired
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  // Configuration options
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+      },
+    },
+  };
+
+  // Create the pie chart
+  const ctx = document.getElementById("myPieChart").getContext("2d");
+  const myPieChart = new Chart(ctx, {
+    type: "pie",
+    data: data,
+    options: options,
+  });
+</script>
+
+{% endblock %}

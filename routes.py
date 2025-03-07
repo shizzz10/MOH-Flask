@@ -47,6 +47,11 @@ def login():
 def add_facility():
     return render_template('add-facility.html')
 
+@app.route('/add_user')
+@login_required
+def add_user():
+    return render_template('add_user.html')
+
 @app.route('/update-facility')
 @login_required
 def update_facility():
@@ -97,10 +102,10 @@ def laboratories_facility():
 def support_services_facility():
     return render_template('support_services_facility.html')
 
-@app.route('/eg')
+@app.route('/users')
 @login_required
-def eg():
-    return render_template('eg.html')
+def users():
+    return render_template('users.html')
 
 # Logout route
 @app.route('/logout')

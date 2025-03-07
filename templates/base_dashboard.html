@@ -282,8 +282,8 @@
 
           <!-- User Management -->
           <a
-            href=""
-            class="bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] transition-all duration-100 ease-in-out items-center"
+            href="{{ url_for('users') }}"
+            class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('users') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
           >
             <img
               src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"
@@ -540,8 +540,8 @@
 
           <!-- User Management -->
           <a
-            href=""
-            class="bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] transition-all duration-100 ease-in-out items-center"
+            href="{{ url_for('users') }}"
+            class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('users') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
           >
             <img
               src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"

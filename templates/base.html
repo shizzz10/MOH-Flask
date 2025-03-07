@@ -9,9 +9,9 @@
       href="{{ url_for('static', filename='assets/MOHlogo.png') }}"
     />
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link
       href="{{ url_for('static', filename='styles/output.css') }}"
       rel="stylesheet"
@@ -286,8 +286,8 @@
 
           <!-- User Management -->
           <a
-            href=""
-            class="bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] transition-all duration-100 ease-in-out items-center"
+            href="{{ url_for('users') }}"
+            class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('users') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
           >
             <img
               src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"
@@ -332,8 +332,18 @@
 
     {% block content %} {% endblock %}
 
-
     <script>
+      // back button functionality
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "/";
+          }
+        });
+
       // Accordion & Its Animation
       const accordionHeader = document.querySelectorAll(".accordion-header");
       accordionHeader.forEach((header) => {

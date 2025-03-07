@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block title %} Add User {% endblock %} {% block
+content %}
+
+<main
+  dir="ltr"
+  class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 items-center xl:max-w-[1200px] w-full"
+>
+  <!-- User Registration Form -->
+  <form
+    class="flex flex-col gap-6 mt-6 mb-6 sm:mb-2 overflow-hidden border border-light p-5 sm:p-6 lg:p-8 w-[94%] sm:w-[90%] lg:w-[80%] rounded-2xl bg-white shadow-md shadow-black/40 transition-all duration-200 ease-in-out hover:shadow-black/20"
+  >
+    <!-- Heading -->
+    <div class="flex items-start">
+      <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+        Register New User/تسجيل مستخدم جديد<br />
+      </h2>
+    </div>
+
+    <!-- Form Fields -->
+    <div class="flex flex-col gap-4">
+      <!-- Name -->
+      <div class="flex flex-col gap-1">
+        <label for="name" class="text-gray-700 font-medium lg:text-lg"
+          >Name/الاسم</label
+        >
+        <input
+          id="name"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter name"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Username -->
+      <div class="flex flex-col gap-1">
+        <label for="username" class="text-gray-700 font-medium lg:text-lg"
+          >Username/اسم المستخدم</label
+        >
+        <input
+          id="username"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter username"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Assigned Hospital Name -->
+      <div class="flex flex-col gap-1">
+        <label for="hospital_name" class="text-gray-700 font-medium lg:text-lg"
+          >Assigned Hospital Name/اسم المستشفى المعين</label
+        >
+        <input
+          id="hospital_name"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter hospital name"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Email -->
+      <div class="flex flex-col gap-1">
+        <label for="email" class="text-gray-700 font-medium lg:text-lg"
+          >Email/البريد الإلكتروني</label
+        >
+        <input
+          id="email"
+          type="email"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter email"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Password -->
+      <div class="flex flex-col gap-1">
+        <label for="password" class="text-gray-700 font-medium lg:text-lg"
+          >Password/كلمة المرور</label
+        >
+        <input
+          id="password"
+          type="password"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter password"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+
+      <!-- Contact Number -->
+      <div class="flex flex-col gap-1">
+        <label for="contact_number" class="text-gray-700 font-medium lg:text-lg"
+          >Contact Number/رقم الاتصال</label
+        >
+        <input
+          id="contact_number"
+          type="text"
+          class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+          placeholder="Enter contact number"
+        />
+        <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+      </div>
+    </div>
+
+    <button
+      class="w-full bg-darkmain border border-darkmain hover:bg-white hover:text-darkmain font-medium lg:font-semibold text-white rounded-2xl p-1.5 lg:p-2 text-lg lg:text-xl"
+    >
+      Register User
+    </button>
+  </form>
+</main>
+
+{% endblock %}
