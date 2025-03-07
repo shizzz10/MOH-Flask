@@ -1,265 +1,7 @@
-{% extends "base.html" %} {% block title %} Admin Home {% endblock %} {% block
+{% extends "base_dashboard.html" %} {% block title %} Admin Home {% endblock %} {% block
 content %}
 
-<main class="px-2 lg:px-0 lg:pl-3 flex flex-col gap-8 w-full">
-  <!-- sidebar and content -->
-  <div class="flex gap-4">
-    <!-- sidebar -->
-    <div
-      class="hidden c-scrollbar lg:flex flex-col w-80 border-l border-[#E3DEC2] bg-[#f7f6f6] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll"
-    >
-      <a
-        href="{{ url_for('index') }}"
-        class="bg-light p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-darkmain transition-all duration-100 ease-in-out items-center"
-      >
-        <img
-          src="{{ url_for('static', filename='assets/grip-vertical-solid.svg') }}"
-          class="h-6"
-          alt=""
-        />
-        <span>لوحة التحكم</span>
-      </a>
 
-      <!-- Healthcare Facilities Accordion -->
-      <div class="accordion-item border-y border-gray-300">
-        <div
-          class="accordion-header hover:bg-light/20 p-5 items-center font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
-        >
-          <img
-            src="{{ url_for('static', filename='assets/stethoscope-solid.svg') }}"
-            class="h-6"
-            alt=""
-          />
-          <span>المرافق الصحية</span>
-          <img
-            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
-            alt="arrow"
-            class="w-3.5 arrow transition-transform duration-300 mr-auto"
-          />
-        </div>
-
-        <!-- Accordion Content -->
-        <div
-          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
-        >
-          <a
-            href="{{ url_for('view_facility') }}"
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المستشفيات</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/house-medical-circle-check-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المجمعات العامة</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/house-medical-flag-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المجمعات الخاصة</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/eye-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>البصريات</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/capsules-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>الصيدليات</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/tooth-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المختبرات السنية</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/flask-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المختبرات</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hand-holding-medical-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>خدمات الدعم</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Quality Indicators Accordion -->
-      <div class="accordion-item border-y border-gray-300">
-        <div
-          class="accordion-header hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
-        >
-          <img
-            src="{{ url_for('static', filename='assets/ranking-star-solid.svg') }}"
-            class="h-6"
-            alt=""
-          />
-          <span>مؤشرات الجودة</span>
-          <img
-            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
-            alt="arrow"
-            class="w-3.5 arrow transition-transform duration-300 mr-auto"
-          />
-        </div>
-
-        <!-- Accordion Content -->
-        <div
-          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
-        >
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المستشفيات 1</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المستشفيات 2</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المستشفيات 3</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>المستشفيات 4</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- User Management Accordion -->
-      <div class="accordion-item border-y border-gray-300">
-        <div
-          class="accordion-header hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
-        >
-          <img
-            src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"
-            class="h-6"
-            alt=""
-          />
-          <span>إدارة المستخدمين</span>
-          <img
-            src="{{ url_for('static', filename='assets/green arrow.svg') }}"
-            alt="arrow"
-            class="w-3.5 arrow transition-transform duration-300 mr-auto"
-          />
-        </div>
-
-        <!-- Accordion Content -->
-        <div
-          class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
-        >
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/user-plus-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>مستخدم جديد</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/users-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>جميع المستخدمين</span>
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- Content  -->
     <div
@@ -268,7 +10,7 @@ content %}
       <!-- heading  -->
       <div class="flex items-center justify-between gap-6">
         <h2 class="text-2xl sm:text-3xl lg:text-3xl text-lightmain font-bold">
-          لوحة تحكم المشرف
+          لوحة تحكم المشرف/Admin Dashboard
         </h2>
         <a
           href="{{ url_for('add_facility') }}"
@@ -282,7 +24,8 @@ content %}
         class="flex items-center gap-3 sm:gap-5 lg:gap-x-10 xl:gap-x-20 button-slider overflow-hidden sm:flex-wrap 2xl:justify-between"
       >
         <!-- Hospitals  -->
-        <div
+        <a
+        href="{{ url_for('hospital_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -298,7 +41,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+                4
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -307,10 +50,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Public Complexes  -->
-        <div
+        <a
+        href="{{ url_for('public_complex_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -326,7 +70,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+                61
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -335,10 +79,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Private Complexes -->
-        <div
+        <a
+        href="{{ url_for('private_complex_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -354,7 +99,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+              67
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -363,10 +108,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Optics  -->
-        <div
+        <a
+        href="{{ url_for('optic_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -382,7 +128,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+               59
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -391,10 +137,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Pharmacy  -->
-        <div
+        <a
+        href="{{ url_for('pharmacy_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -410,7 +157,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+                303
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -419,10 +166,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Dental Labs  -->
-        <div
+        <a
+        href="{{ url_for('dental_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -438,7 +186,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+               5
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -447,10 +195,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Laboratories  -->
-        <div
+        <a
+        href="{{ url_for('laboratories_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -466,7 +215,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+               11
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -475,10 +224,11 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
 
         <!-- Support Services  -->
-        <div
+        <a
+        href="{{ url_for('support_services_facility') }}"
           class="bg-darkmain/90 hover:bg-darkmain/80 rounded-2xl w-40 sm:w-44 lg:w-48 aspect-[7/4] flex flex-col gap-0 text-white overflow-hidden shrink-0 shadow-sm shadow-lightmain/20"
         >
           <button
@@ -494,7 +244,7 @@ content %}
               <h5
                 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5"
               >
-                8
+                13
               </h5>
               <h5
                 class="flex text-right font-semibold text-lg sm:text-xl lg:text-2xl leading-4 sm:leading-5"
@@ -503,7 +253,7 @@ content %}
               </h5>
             </div>
           </button>
-        </div>
+        </a>
       </div>
 
       <!-- map -->
@@ -528,86 +278,7 @@ content %}
 
 
     </div>
-  </div>
-</main>
 
-<script>
-  // Accordion & Its Animation
-  const accordionHeader = document.querySelectorAll(".accordion-header");
-  accordionHeader.forEach((header) => {
-    header.addEventListener("click", () => {
-      const content = header.nextElementSibling;
-      const arrow = header.querySelector(".arrow");
 
-      if (content.classList.contains("hidden")) {
-        content.classList.remove("hidden");
-        requestAnimationFrame(() => {
-          content.classList.add("opacity-100", "scale-y-100");
-          content.classList.remove("opacity-0", "scale-y-0");
-        });
-      } else {
-        // Start collapsing animation
-        content.classList.add("opacity-0", "scale-y-0");
-        content.classList.remove("opacity-100", "scale-y-100");
-
-        // Wait for the animation to complete before adding 'hidden'
-        content.addEventListener(
-          "transitionend",
-          () => {
-            content.classList.add("hidden");
-          },
-          { once: true }
-        );
-      }
-
-      // Rotate the arrow
-      arrow.classList.toggle("rotate-180");
-    });
-  });
-
-  const buttons = document.querySelectorAll(".tab-btn");
-  const contents = document.querySelectorAll(".tab-content");
-  const container = document.querySelector(".button-slider"); // Parent container
-
-  // Function to activate a tab
-  function activateTab(button) {
-    const target = button.getAttribute("data-tab");
-
-    // Remove active state from all buttons
-    buttons.forEach((btn) => {
-      btn.classList.remove("bg-darkmain/100", "hover:bg-darkmain/100");
-      btn.classList.add("bg-darkmain/30");
-    });
-
-    // Hide all content
-    contents.forEach((content) => content.classList.add("hidden"));
-
-    // Activate the clicked tab
-    button.classList.remove("bg-darkmain/30");
-    button.classList.add("bg-darkmain/100", "hover:bg-darkmain/100");
-
-    // Show corresponding content
-    document.getElementById("content-" + target).classList.remove("hidden");
-
-    // Scroll the active button into the center
-    button.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center", // Ensures horizontal centering
-    });
-  }
-
-  // Add click event listeners
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      activateTab(this);
-    });
-  });
-
-  // Activate the first tab on page load
-  if (buttons.length > 0) {
-    activateTab(buttons[0]);
-  }
-</script>
 
 {% endblock %}

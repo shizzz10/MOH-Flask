@@ -9,6 +9,10 @@
       href="{{ url_for('static', filename='assets/MOHlogo.png') }}"
     />
     <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+    <link
       href="{{ url_for('static', filename='styles/output.css') }}"
       rel="stylesheet"
     />
@@ -21,6 +25,33 @@
       <div
         class="flex gap-0.5 lg:gap-1 items-center justify-between lg:justify-start w-full"
       >
+        <div class="flex gap-0.5 lg:gap-1 items-center">
+          <!-- logo  -->
+          <a href="{{ url_for('index') }}" class="flex shrink-0">
+            <img
+              src="{{ url_for('static', filename='assets/MOHlogo.png') }}"
+              class="w-14 lg:w-20"
+              alt=""
+            />
+          </a>
+          <div class="flex flex-col">
+            <h2
+              class="text-sm sm:text-base text-darkmain font-bold w-fit leading-4 sm:leading-6"
+            >
+              <span class="hidden lg:flex">
+                منصة جودة خدمات الصحة في القطاع الخاص - فرع وزارة الصح في الطائف
+              </span>
+              <span class="flex lg:hidden">
+                منصة جودة خدمات الصحة في القطاع الخاص - فرع وزارة الصحة في
+                الطائف
+              </span>
+            </h2>
+            <span class="text-xs sm:text-sm text-lightmain font-medium"
+              >منطقة الطائف</span
+            >
+          </div>
+        </div>
+
         <!-- Hamburger Button -->
         <div
           class="flex bg-gradient-to-b from-light to-lightmain p-2 lg:p-3 rounded-full lg:hidden"
@@ -37,32 +68,6 @@
             ></span>
           </button>
         </div>
-
-        <div class="flex gap-0.5 lg:gap-1 items-center">
-          <!-- logo  -->
-          <a href="{{ url_for('index') }}" class="flex shrink-0">
-            <img
-              src="{{ url_for('static', filename='assets/MOHlogo.png') }}"
-              class="w-14 lg:w-20"
-              alt=""
-            />
-          </a>
-          <div class="flex flex-col">
-            <h2
-              class="text-sm sm:text-base text-darkmain font-bold w-fit leading-4 sm:leading-6"
-            >
-              <span class="hidden lg:flex">
-                قائمة المستشفيات الخاصة | وزارة الصحة (المملكة العربية السعودية)
-              </span>
-              <span class="flex lg:hidden">
-                قائمة المستشفيات الخاصة | وزارة الصحة (المملكة العربية السعودية)
-              </span>
-            </h2>
-            <span class="text-xs sm:text-sm text-lightmain font-medium"
-              >منطقة الطائف</span
-            >
-          </div>
-        </div>
       </div>
 
       <!-- Menu -->
@@ -72,198 +77,296 @@
       >
         <!-- sidebar -->
         <div
-          class="c-scrollbar lg:flex flex-col w-80 border-r border-[#E3DEC2] bg-[#f7f6f6] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll pb-12"
+          class="c-scrollbar flex flex-col w-80 border-l border-[#E3DEC2] bg-[#f7f6f6] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll pb-20"
         >
+          <!-- Dashboard -->
           <a
             href="{{ url_for('index') }}"
-            class="p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
-            {% if request.path == '/' %}
-                bg-light border-l-darkmain
-            {% else %}
-                hover:bg-light/20 border-l-[#f7f6f6] hover:border-l-darkmain/20
-            {% endif %}"
+            class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('index') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
           >
             <img
               src="{{ url_for('static', filename='assets/grip-vertical-solid.svg') }}"
               class="h-6"
               alt=""
             />
-            <span>Dashboard</span>
+            <span>لوحة التحكم</span>
           </a>
 
-          <a
-            href="{{ url_for('view_facility') }}"
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Hospitals</span>
-          </a>
+          <!-- Healthcare Facilities Accordion -->
+          <div class="accordion-item border-y border-gray-300">
+            <div
+              class="accordion-header hover:bg-light/20 p-5 items-center font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
+            >
+              <img
+                src="{{ url_for('static', filename='assets/stethoscope-solid.svg') }}"
+                class="h-6"
+                alt=""
+              />
+              <span>المرافق الصحية</span>
+              <img
+                src="{{ url_for('static', filename='assets/green arrow.svg') }}"
+                alt="arrow"
+                class="w-3.5 arrow transition-transform duration-300 mr-auto"
+              />
+            </div>
 
+            <!-- Accordion Content -->
+            <div
+              class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
+            >
+              <a
+                href="{{ url_for('hospital_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('hospital_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>المستشفيات</span>
+              </a>
+
+              <a
+                href="{{ url_for('public_complex_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('public_complex_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/house-medical-circle-check-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>المجمعات العامة</span>
+              </a>
+
+              <a
+                href="{{ url_for('private_complex_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('private_complex_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/house-medical-flag-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>المجمعات الخاصة</span>
+              </a>
+
+              <a
+                href="{{ url_for('optic_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('optic_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/eye-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>البصريات</span>
+              </a>
+
+              <a
+                href="{{ url_for('pharmacy_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('pharmacy_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/capsules-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>الصيدليات</span>
+              </a>
+
+              <a
+                href="{{ url_for('dental_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('dental_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/tooth-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>المختبرات السنية</span>
+              </a>
+
+              <a
+                href="{{ url_for('laboratories_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('laboratories_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/flask-solid.svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>المختبرات</span>
+              </a>
+
+              <a
+                href="{{ url_for('support_services_facility') }}"
+                class="p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 transition-all duration-100 ease-in-out items-center {% if request.path == url_for('support_services_facility') %} bg-light border-r-4 border-r-darkmain {% else %} hover:bg-light/20 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 {% endif %}"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hand-holding-medical-solid (1).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>خدمات الدعم</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quality Indicators Accordion -->
+          <div class="accordion-item border-y border-gray-300">
+            <div
+              class="accordion-header hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out cursor-pointer"
+            >
+              <img
+                src="{{ url_for('static', filename='assets/ranking-star-solid.svg') }}"
+                class="h-6"
+                alt=""
+              />
+              <span>مؤشرات الجودة</span>
+              <img
+                src="{{ url_for('static', filename='assets/green arrow.svg') }}"
+                alt="arrow"
+                class="w-3.5 arrow transition-transform duration-300 mr-auto"
+              />
+            </div>
+
+            <!-- Accordion Content -->
+            <div
+              class="accordion-content flex flex-col transition-all duration-300 ease-in-out transform origin-top opacity-0 scale-y-0 hidden bg-[#fdfdfd]"
+            >
+              <a
+                href=""
+                class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>مستشفى الامين العام</span>
+              </a>
+
+              <a
+                href=""
+                class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>مستشفى الطائف الطبي</span>
+              </a>
+
+              <a
+                href=""
+                class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>مستشفى العدواني العام بالطائف</span>
+              </a>
+
+              <a
+                href=""
+                class="hover:bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#fdfdfd] hover:border-r-darkmain/20 transition-all duration-100 ease-in-out items-center"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/hospital-solid (2).svg') }}"
+                  class="h-6"
+                  alt=""
+                />
+                <span>مستشفى النهضة العام</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- User Management -->
           <a
             href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
+            class="bg-light/20 p-5 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-r-4 border-r-[#f7f6f6] transition-all duration-100 ease-in-out items-center"
           >
             <img
-              src="{{ url_for('static', filename='assets/house-medical-circle-check-solid (1).svg') }}"
+              src="{{ url_for('static', filename='assets/user-group-solid.svg') }}"
               class="h-6"
               alt=""
             />
-            <span>Public Complexes</span>
+            <span>إدارة المستخدمين</span>
           </a>
 
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/house-medical-flag-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Private Complexes</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/eye-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Optics</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/capsules-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Pharmacy</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/tooth-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Dental Labs</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/flask-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Laboratories</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hand-holding-medical-solid (1).svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Support Services</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/notes-medical-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Add Facility</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/user-plus-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span>Register User</span>
-          </a>
-
-          <a
-            href=""
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/file-pen-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span> Edit Form</span>
-          </a>
-
-          <a
-            href="{{ url_for('view_facility') }}"
-            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#E3DEC2] flex gap-2 border-l-4 border-l-[#f7f6f6] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out"
-          >
-            <img
-              src="{{ url_for('static', filename='assets/hospital-solid.svg') }}"
-              class="h-6"
-              alt=""
-            />
-            <span> View Hospital Page </span>
-          </a>
-
-          <a
-            href="{{ url_for('logout') }}"
-            class="py-1 my-3 sm:py-1 lg:py-1.5 px-2 sm:px-3 lg:px-4 mt-4 flex justify-center items-center gap-2 text-lg font-semibold text-darkmain rounded-xl"
-            >Log Out
-            <img
-              src="{{ url_for('static', filename='assets/right-from-bracket-solid.svg') }}"
-              class="h-5"
-              alt=""
-          /></a>
+          <!-- Logout -->
+          <div class="flex shrink-0 mt-auto justify-center items-center pt-2">
+            <a
+              href="{{ url_for('logout') }}"
+              class="py-1 sm:py-1 lg:py-1.5 px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-lg font-semibold text-darkmain bg-light border border-light hover:bg-light/50 rounded-xl"
+            >
+              تسجيل الخروج
+              <img
+                src="{{ url_for('static', filename='assets/right-from-bracket-solid.svg') }}"
+                class="h-5"
+                alt=""
+              />
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- logout -->
+      <!-- back button -->
       <div class="hidden lg:flex shrink-0">
-        <a
-          href="{{ url_for('logout') }}"
-          class="py-1 sm:py-1 lg:py-1.5 px-2 sm:px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-sm sm:text-base lg:text-lg font-semibold text-darkmain bg-light hover:bg-light/50 rounded-xl"
-          >تسجيل الخروج
+        <div
+          id="backButton"
+          class="py-1 sm:py-1 lg:py-1.5 px-2 sm:px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-sm sm:text-base lg:text-lg font-semibold text-darkmain bg-light hover:bg-light/50 rounded-xl cursor-pointer"
+        >
+          خلف
           <img
-            src="{{ url_for('static', filename='assets/right-from-bracket-solid.svg') }}"
-            class="h-5"
+            src="{{ url_for('static', filename='assets/back.svg') }}"
+            class="flex w-6"
             alt=""
-        /></a>
+          />
+        </div>
       </div>
     </header>
 
     {% block content %} {% endblock %}
 
+
     <script>
+      // Accordion & Its Animation
+      const accordionHeader = document.querySelectorAll(".accordion-header");
+      accordionHeader.forEach((header) => {
+        header.addEventListener("click", () => {
+          const content = header.nextElementSibling;
+          const arrow = header.querySelector(".arrow");
+
+          if (content.classList.contains("hidden")) {
+            content.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              content.classList.add("opacity-100", "scale-y-100");
+              content.classList.remove("opacity-0", "scale-y-0");
+            });
+          } else {
+            // Start collapsing animation
+            content.classList.add("opacity-0", "scale-y-0");
+            content.classList.remove("opacity-100", "scale-y-100");
+
+            // Wait for the animation to complete before adding 'hidden'
+            content.addEventListener(
+              "transitionend",
+              () => {
+                content.classList.add("hidden");
+              },
+              { once: true }
+            );
+          }
+
+          // Rotate the arrow
+          arrow.classList.toggle("rotate-180");
+        });
+      });
+
       // Select elements
       const menuBtn = document.getElementById("menu-btn");
       const menu = document.getElementById("menu");

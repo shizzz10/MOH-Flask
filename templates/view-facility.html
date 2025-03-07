@@ -1,14 +1,14 @@
-{% extends "base.html" %} {% block title %} View Facility Page {% endblock %} {%
+{% extends "base_dashboard.html" %} {% block title %} View Facility Page {% endblock %} {%
 block content %}
 
-<main
+<div
   class="flex px-4 lg:px-8 flex-col gap-8 items-center xl:max-w-[1280px] w-full mt-10 mb-10"
 >
   <!-- 1st section (hospital & contact info)  -->
   <div class="flex flex-col lg:flex-row justify-between w-full gap-8 lg:gap-0">
     <!-- 1col  -->
     <div
-      class="flex flex-col w-full gap-6 lg:gap-8 lg:w-[47%] border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 lg:h-[690px]"
+      class="flex flex-col w-full gap-6 lg:gap-8 lg:w-[47%] border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 lg:h-[890px]"
     >
       <!-- img  -->
       <div
@@ -19,90 +19,153 @@ block content %}
           alt=""
           class="w-full aspect-[5/2] sm:aspect-[6/3] object-cover rounded-2xl shadow-sm shadow-black/10"
         />
-        <h2 class="text-lg lg:text-xl font-semibold">Al Ameen Hospital</h2>
+        <h2 class="text-lg lg:text-xl font-semibold">مستشفى الأمين</h2>
       </div>
 
-      <!-- hospital info  -->
-      <div class="flex flex-col gap-4">
-        <!-- location  -->
-        <div class="flex gap-3 sm:gap-4 items-start">
-          <img
-            src="{{ url_for('static', filename='assets/location-dot-solid (1).svg') }}"
-            class="w-6"
-            alt=""
-          />
-          <div class="flex flex-col gap-0.5">
-            <h5 class="font-medium shrink-0 text-start leading-4">Location</h5>
-            <span class="text-sm text-gray-700 text-start leading-4">Taif</span>
-          </div>
-        </div>
-        <!-- License Issuance Date -->
-        <div class="flex gap-3 sm:gap-4 items-start">
-          <img
-            src="{{ url_for('static', filename='assets/file-signature-solid.svg') }}"
-            class="w-6"
-            alt=""
-          />
-          <div class="flex flex-col gap-0.5">
-            <h5 class="font-medium shrink-0 text-start leading-4">
-              License Issuance Date
-            </h5>
-            <span class="text-sm text-gray-700 text-start leading-4"
-              >22/12/2024</span
-            >
-          </div>
-        </div>
-        <!-- License Expiry Date -->
-        <div class="flex gap-3 sm:gap-4 items-start">
-          <img
-            src="{{ url_for('static', filename='assets/hourglass-half-solid.svg') }}"
-            class="w-6"
-            alt=""
-          />
-          <div class="flex flex-col gap-0.5">
-            <h5 class="font-medium shrink-0 text-start leading-4">
-              License Expiry Date
-            </h5>
-            <span class="text-sm text-gray-700 text-start leading-4"
-              >22/12/2026</span
-            >
-          </div>
-        </div>
-        <!-- Commercial Registration Number -->
-        <div class="flex gap-3 sm:gap-4 items-start">
-          <img
-            src="{{ url_for('static', filename='assets/file-invoice-solid.svg') }}"
-            class="w-6"
-            alt=""
-          />
-          <div class="flex flex-col gap-0.5">
-            <h5 class="font-medium shrink-0 text-start leading-4">
-              Commercial Registration Number
-            </h5>
-            <span class="text-sm text-gray-700 text-start leading-4"
-              >12354</span
-            >
-          </div>
-        </div>
-        <!-- License Number -->
-        <div class="flex gap-3 sm:gap-4 items-start">
-          <img
-            src="{{ url_for('static', filename='assets/file-shield-solid.svg') }}"
-            class="w-6"
-            alt=""
-          />
-          <div class="flex flex-col gap-0.5">
-            <h5 class="font-medium shrink-0 text-start leading-4">
-              License Number
-            </h5>
-            <span class="text-sm text-gray-700 text-start leading-4"
-              >12354</span
-            >
-          </div>
-        </div>
-      </div>
+     <!-- hospital info  -->
+     <div class="flex flex-col gap-4 bg-darkmain/5 p-2 rounded-lg">
+
+      <h4 class="text-base lg:text-lg font-semibold text-center">معلومات المستشفى</h4> 
+
+       <!-- location  -->
+       <div class="flex gap-3 sm:gap-4 items-start">
+         <img
+           src="{{ url_for('static', filename='assets/location-dot-solid (1).svg') }}"
+           class="w-6"
+           alt=""
+         />
+         <div class="flex flex-col gap-0.5">
+           <h5 class="font-medium shrink-0 text-start leading-4">الموقع</h5>
+           <span class="text-sm text-gray-700 text-start leading-4">الطائف</span>
+         </div>
+       </div>
+       <!-- License Issuance Date -->
+       <div class="flex gap-3 sm:gap-4 items-start">
+         <img
+           src="{{ url_for('static', filename='assets/file-signature-solid.svg') }}"
+           class="w-6"
+           alt=""
+         />
+         <div class="flex flex-col gap-0.5">
+           <h5 class="font-medium shrink-0 text-start leading-4">
+             تاريخ إصدار الترخيص
+           </h5>
+           <span class="text-sm text-gray-700 text-start leading-4"
+             >22/12/2024</span
+           >
+         </div>
+       </div>
+       <!-- License Expiry Date -->
+       <div class="flex gap-3 sm:gap-4 items-start">
+         <img
+           src="{{ url_for('static', filename='assets/hourglass-half-solid.svg') }}"
+           class="w-6"
+           alt=""
+         />
+         <div class="flex flex-col gap-0.5">
+           <h5 class="font-medium shrink-0 text-start leading-4">
+             تاريخ انتهاء الترخيص
+           </h5>
+           <span class="text-sm text-gray-700 text-start leading-4"
+             >22/12/2026</span
+           >
+         </div>
+       </div>
+       <!-- Commercial Registration Number -->
+       <div class="flex gap-3 sm:gap-4 items-start">
+         <img
+           src="{{ url_for('static', filename='assets/file-invoice-solid.svg') }}"
+           class="w-6"
+           alt=""
+         />
+         <div class="flex flex-col gap-0.5">
+           <h5 class="font-medium shrink-0 text-start leading-4">
+             رقم السجل التجاري
+           </h5>
+           <span class="text-sm text-gray-700 text-start leading-4"
+             >12354</span
+           >
+         </div>
+       </div>
+       <!-- License Number -->
+       <div class="flex gap-3 sm:gap-4 items-start">
+         <img
+           src="{{ url_for('static', filename='assets/file-shield-solid.svg') }}"
+           class="w-6"
+           alt=""
+         />
+         <div class="flex flex-col gap-0.5">
+           <h5 class="font-medium shrink-0 text-start leading-4">
+             رقم الترخيص
+           </h5>
+           <span class="text-sm text-gray-700 text-start leading-4"
+             >12354</span
+           >
+         </div>
+       </div>
+     </div>
+
+
+      <!-- CBAHI hospital info  -->
+      <div class="flex flex-col gap-4 bg-darkmain/5 p-2 rounded-lg">
+
+        <h4 class="text-base lg:text-lg font-semibold text-center">معلومات CBAHI</h4> 
+ 
+         <!-- License Number -->
+         <div class="flex gap-3 sm:gap-4 items-start">
+           <img
+             src="{{ url_for('static', filename='assets/file-shield-solid.svg') }}"
+             class="w-6"
+             alt=""
+           />
+           <div class="flex flex-col gap-0.5">
+             <h5 class="font-medium shrink-0 text-start leading-4">
+               رقم ترخيص CBAHI
+             </h5>
+             <span class="text-sm text-gray-700 text-start leading-4"
+               >67854</span
+             >
+           </div>
+         </div>
+         <!-- License Issuance Date -->
+         <div class="flex gap-3 sm:gap-4 items-start">
+           <img
+             src="{{ url_for('static', filename='assets/file-signature-solid.svg') }}"
+             class="w-6"
+             alt=""
+           />
+           <div class="flex flex-col gap-0.5">
+             <h5 class="font-medium shrink-0 text-start leading-4">
+               تاريخ إصدار ترخيص CBAHI
+             </h5>
+             <span class="text-sm text-gray-700 text-start leading-4"
+               >22/12/2024</span
+             >
+           </div>
+         </div>
+         <!-- License Expiry Date -->
+         <div class="flex gap-3 sm:gap-4 items-start">
+           <img
+             src="{{ url_for('static', filename='assets/hourglass-half-solid.svg') }}"
+             class="w-6"
+             alt=""
+           />
+           <div class="flex flex-col gap-0.5">
+             <h5 class="font-medium shrink-0 text-start leading-4">
+               تاريخ انتهاء ترخيص CBAHI
+             </h5>
+             <span class="text-sm text-gray-700 text-start leading-4"
+               >22/12/2026</span
+             >
+           </div>
+         </div>
+ 
+       </div>
+ 
 
       <!-- license status  -->
+      <div class="flex  gap-4 items-center justify-center mt-auto">
+        <!-- License -->
       <div class="flex flex-col gap-0 items-center mt-auto">
         <h5 class="font-medium shrink-0 text-center">License Status</h5>
         <a
@@ -111,20 +174,32 @@ block content %}
           >Active</a
         >
       </div>
+      <!-- CBAHI License -->
+      <div class="flex flex-col gap-0 items-center mt-auto">
+        <h5 class="font-medium shrink-0 text-center">CBAHI Status</h5>
+        <a
+          href="{{ url_for('index') }}"
+          class="text-center bg-green-500 hover:bg-green-500/80 px-4 lg:px-5 py-1 text-white rounded-xl font-medium text-sm lg:text-base"
+          >Active</a
+        >
+      </div>
+      </div>
     </div>
 
     <!-- 2ndcol  -->
     <div
-      class="flex flex-col justify-between gap-4 w-full lg:w-[47%] lg:h-[690px]"
+      class="flex flex-col justify-between gap-4 w-full lg:w-[47%] lg:h-[890px]"
     >
       <!-- 1st row  -->
       <div
-        class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[47%]"
+        class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[48%]"
       >
-        <h3 class="font-semibold text-lg">Contact Details</h3>
+        <h3 class="font-semibold text-lg">تفاصيل الاتصال</h3>
 
-        <!-- contact info  -->
-        <div class="flex flex-col gap-4">
+        <!-- Owner contact info  -->
+        <div class="flex flex-col gap-4 bg-darkmain/5 p-2 rounded-lg">          
+          <h4 class="text-base lg:text-lg font-semibold text-center">مالك</h4> 
+
           <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
             <img
               src="{{ url_for('static', filename='assets/user-tie-solid.svg') }}"
@@ -133,7 +208,7 @@ block content %}
             />
             <div class="flex flex-col gap-0.5">
               <h5 class="font-medium shrink-0 text-start leading-4">
-                Owner Name
+                اسم المالك
               </h5>
             </div>
           </div>
@@ -145,7 +220,7 @@ block content %}
               alt=""
             />
             <div class="flex flex-col gap-0.5">
-              <h5 class="font-medium shrink-0 text-start leading-4">Email</h5>
+              <h5 class="font-medium shrink-0 text-start leading-4">بريد إلكتروني</h5>
             </div>
           </div>
 
@@ -157,7 +232,48 @@ block content %}
             />
             <div class="flex flex-col gap-0.5">
               <h5 class="font-medium shrink-0 text-start leading-4">
-                Contact Number
+                رقم الاتصال
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- CBAHI  info  -->
+        <div class="flex flex-col gap-4 bg-darkmain/5 p-2 rounded-lg">
+          <h4 class="text-base lg:text-lg font-semibold text-center">مدير المستشفى</h4> 
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/user-tie-solid.svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">
+                اسم المالك
+              </h5>
+            </div>
+          </div>
+
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/envelope-solid (1).svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">بريد إلكتروني</h5>
+            </div>
+          </div>
+
+          <div class="flex gap-3 sm:gap-4 items-start sm:items-center">
+            <img
+              src="{{ url_for('static', filename='assets/tty-solid.svg') }}"
+              class="w-5"
+              alt=""
+            />
+            <div class="flex flex-col gap-0.5">
+              <h5 class="font-medium shrink-0 text-start leading-4">
+                رقم الاتصال
               </h5>
             </div>
           </div>
@@ -166,22 +282,76 @@ block content %}
 
       <!-- 2nd row  -->
       <div
-        class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[47%]"
+        class="flex flex-col border border-light rounded-2xl p-3 sm:p-4 bg-white shadow-sm shadow-black/30 gap-6 h-[48%]"
       >
         <div class="flex flex-col gap-1">
-          <h3 class="font-semibold text-lg">Notes / Comments</h3>
-          <span class="text-sm text-gray-700 text-start leading-4">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque
-            consequuntur deserunt adipisci unde perspiciatis nulla nisi nemo et.
-            Excepturi, nesciunt! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Asperiores nam quia harum. Odit culpa eveniet,
-            consequatur adipisci, cumque dolore aut perferendis in voluptate,
-            nemo voluptatem molestias? Deserunt minima consectetur sint, quaerat
-            laborum eveniet. Voluptates dolorum laudantium deserunt cum at
-            obcaecati quidem ipsam enim quam est eveniet fuga, quibusdam
-            perferendis nulla soluta eligendi neque vel architecto porro
-            molestiae!
-          </span>
+          <h3 class="font-semibold text-lg">عدد الموارد</h3>
+          <div class="grid gap-2 sm:gap-3 lg:gap-4 grid-cols-2 ">
+            
+            <!-- doctor Button -->
+    <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/user-doctor-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">الأطباء: 120</span>
+    </button>
+            <!-- Nurses Button -->
+    <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/user-nurse-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">الممرضين: 120</span>
+    </button>
+            
+            <!-- Other Staff Button -->
+    <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/hospital-user-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">الموظفين الآخرين: 120</span>
+    </button>
+            
+            <!-- Bed Count Button -->
+    <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/bed-solid.svg') }}" alt="">
+    </div>
+    <div class="font-semibold text-sm sm:text-base text-darkmain">
+        <span>عدد الأسرة</span>: <span>120</span>
+    </div>
+    </button>
+            
+            <!-- Ambulances Button -->
+    <button dir="rtl" class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/truck-medical-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">الإسعافات: 120</span>
+    </button>
+
+     <!-- Ultrasound Button -->
+     <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/wave-square-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">الموجات فوق الصوتية: 120</span>
+    </button>
+
+            
+            <!-- OT Rooms Button -->
+    <button class="flex gap-2 items-center justify-center bg-darkmain/5 hover:bg-darkmain/10 text-gray-700 font-semibold py-1.5 px-2 rounded-lg shadow-sm shadow-darkmain/40 hover:shadow-darkmain/80 transition-shadow">
+      <div class="bg-green-200/20 p-1 rounded-lg shrink-0">
+      <img  class="w-6" src="{{ url_for('static', filename='assets/bed-pulse-solid.svg') }}" alt="">
+    </div>
+      <span class="font-semibold text-sm sm:text-base  text-darkmain">غرف العمليات: 120</span>
+    </button>
+
+      
+
+ 
+
+          </div>
+          
         </div>
       </div>
     </div>
@@ -205,163 +375,209 @@ block content %}
     <div
       class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
     >
-      <h3 class="font-semibold text-lg">General Info</h3>
+      <h3 class="font-semibold text-lg">المعلومات العامة</h3>
 
       <!-- general info  -->
       <div
         class="grid grid-cols-2 sm:grid-cols-4 place-items-center gap-4 flex-wrap"
       >
         <div class="flex flex-col gap-1">
-          <h5 class="font-medium shrink-0 text-center leading-4">Sector</h5>
+          <h5 class="font-medium shrink-0 text-center leading-4">القطاع</h5>
           <span class="text-sm text-gray-700 text-center leading-4"
-            >Private</span
+            >خاص</span
           >
         </div>
 
         <div class="flex flex-col gap-1">
-          <h5 class="font-medium shrink-0 text-center leading-4">Region</h5>
+          <h5 class="font-medium shrink-0 text-center leading-4">المنطقة</h5>
           <span class="text-sm text-gray-700 text-center leading-4"
-            >Makkah</span
+            >مكة</span
           >
         </div>
 
         <div class="flex flex-col gap-1">
           <h5 class="font-medium shrink-0 text-center leading-4">
-            Facility Type
+            نوع المنشأة
           </h5>
           <span class="text-sm text-gray-700 text-center leading-4"
-            >Secondary</span
+            >ثانوي</span
           >
         </div>
 
         <div class="flex flex-col gap-1">
-          <h5 class="font-medium shrink-0 text-center leading-4">Bed Size</h5>
+          <h5 class="font-medium shrink-0 text-center leading-4">عدد الأسرة</h5>
           <span class="text-sm text-gray-700 text-center leading-4"
-            >120 / NA</span
+            >120 / غير متاح</span
           >
         </div>
       </div>
     </div>
 
-    <!-- 2nd row general Statistics -->
-    <div
-      class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
-    >
-      <!-- heading  -->
-      <div class="flex justify-between">
-        <h3 class="font-semibold text-lg">General Statistics</h3>
-        <select
-          id="year"
-          name="year"
-          class="w-fit px-1 lg:px-2 py-1 rounded-xl bg-darkmain/60 text-white border border-darkmain focus:ring-2 focus:ring-darkmain text-sm shrink-0 h-fit"
-        >
-          <option value="" selected disabled>Choose Year</option>
-          <option value="">2024</option>
-          <option value="">2023</option>
-          <option value="">2022</option>
-        </select>
-      </div>
 
-      <!-- general Statistics info  -->
-      <div
-        class="flex flex-col-reverse sm:flex-row justify-between items-start gap-4"
+  <!-- 2nd row general Statistics -->
+<div
+class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
+>
+<!-- heading  -->
+<div class="flex justify-between">
+  <h3 class="font-semibold text-lg">الإحصائيات العامة</h3>
+  <select
+    id="year"
+    name="year"
+    class="w-fit px-1 lg:px-2 py-1 rounded-xl bg-darkmain/60 text-white border border-darkmain focus:ring-2 focus:ring-darkmain text-sm shrink-0 h-fit"
+  >
+    <option value="" selected disabled>اختر السنة</option>
+    <option value="">2024</option>
+    <option value="">2023</option>
+    <option value="">2022</option>
+  </select>
+</div>
+
+<!-- general Statistics info  -->
+<div
+  class="flex flex-col-reverse sm:flex-row justify-between items-start gap-4"
+>
+  <div
+    id="content-hospitals"
+    class="tab-content flex flex-col gap-6 w-full"
+  >
+    <div class="flex flex-col button-slider overflow-hidden">
+      <table
+        class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 sm:w-full text-right"
       >
-        <div
-          id="content-hospitals"
-          class="tab-content flex flex-col gap-6 w-full"
-        >
-          <div class="flex flex-col button-slider overflow-hidden">
-            <table
-              class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 sm:w-full text-left"
-            >
-              <thead>
-                <tr
-                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
-                >
-                  <th class="">Category</th>
-                  <th class="">Q1</th>
-                  <th class="">Q2</th>
-                  <th class="">Q3</th>
-                  <th class="">Q4</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 text-sm font-light">
-                <!-- ER Visits -->
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="font-medium">Total ER Visits</td>
-                  <td class="">2,342</td>
-                  <td class="">3,340</td>
-                  <td class="">2,766</td>
-                  <td class="">2,980</td>
-                </tr>
-                <!-- Outpatient Visits -->
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="font-medium">Total Outpatient Visits</td>
-                  <td class="">31,374</td>
-                  <td class="">11,584</td>
-                  <td class="">29,968</td>
-                  <td class="">33,853</td>
-                </tr>
-                <!-- Hospital Discharges -->
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="font-medium">Total Hospital Discharges</td>
-                  <td class="">436</td>
-                  <td class="">375</td>
-                  <td class="">607</td>
-                  <td class="">896</td>
-                </tr>
-                <!-- Specialized Center Visits -->
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="font-medium">Total Specialized Center Visits</td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                </tr>
-                <!-- Primarycare Center Visits -->
-                <tr
-                  class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
-                >
-                  <td class="font-medium">
-                    Total Number of Primarycare Center Visits
-                  </td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                  <td class="">NA</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3rd row Patient Experience Score -->
-    <div
-      class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
-    >
-      <h3 class="font-semibold text-lg">Patient Experience Score</h3>
-      <span class="text-sm text-gray-400 text-start leading-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-        recusandae nisi aperiam vitae ipsam enim earum error, est voluptate sunt
-        beatae minima magni assumenda omnis labore ea ducimus unde!
-        Necessitatibus odit dolor, aperiam autem minus nam impedit cupiditate
-        iste iusto dignissimos dolores libero dolorum eos culpa nostrum, placeat
-        quo blanditiis aliquam harum vitae fugiat, tenetur veritatis totam? Enim
-        libero vel quidem facere cumque dolor, pariatur ipsum voluptate
-        similique error laborum.
-      </span>
+        <thead>
+          <tr
+            class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base"
+          >
+            <th class="">الفئة</th>
+            <th class="">الربع الأول</th>
+            <th class="">الربع الثاني</th>
+            <th class="">الربع الثالث</th>
+            <th class="">الربع الرابع</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+          <!-- ER Visits -->
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+          >
+            <td class="font-medium">إجمالي زيارات الطوارئ  
+              <div class="relative inline-block group">
+                <button class="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 text-xs sm:text-sm border border-blue-200 rounded-full text-blue-600 cursor-pointer">
+                  i
+                </button>
+                <div class="hidden group-hover:block group-focus-within:block absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                  مرحبًا، هذا 1
+                </div>
+              </div>
+            </td>
+            <td class="">2,342</td>
+            <td class="">3,340</td>
+            <td class="">2,766</td>
+            <td class="">2,980</td>
+          </tr>
+          <!-- Outpatient Visits -->
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+          >
+            <td class="font-medium">إجمالي زيارات العيادات الخارجية
+              <div class="relative inline-block group">
+                <button class="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 text-xs sm:text-sm border border-blue-200 rounded-full text-blue-600 cursor-pointer">
+                  i
+                </button>
+                <div class="hidden group-hover:block group-focus-within:block absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                  مرحبًا، هذا 2
+                </div>
+              </div>
+            </td>
+            <td class="">31,374</td>
+            <td class="">11,584</td>
+            <td class="">29,968</td>
+            <td class="">33,853</td>
+          </tr>
+          <!-- Hospital Discharges -->
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+          >
+            <td class="font-medium">إجمالي حالات الخروج من المستشفى  
+              <div class="relative inline-block group">
+                <button class="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 text-xs sm:text-sm border border-blue-200 rounded-full text-blue-600 cursor-pointer">
+                  i
+                </button>
+                <div class="hidden group-hover:block group-focus-within:block absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                  مرحبًا، هذا 3
+                </div>
+              </div>
+            </td>
+            <td class="">436</td>
+            <td class="">375</td>
+            <td class="">607</td>
+            <td class="">896</td>
+          </tr>
+          <!-- Specialized Center Visits -->
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+          >
+            <td class="font-medium">إجمالي زيارات المراكز المتخصصة  
+              <div class="relative inline-block group">
+                <button class="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 text-xs sm:text-sm border border-blue-200 rounded-full text-blue-600 cursor-pointer">
+                  i
+                </button>
+                <div class="hidden group-hover:block group-focus-within:block absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                  مرحبًا، هذا 4
+                </div>
+              </div>
+            </td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+          </tr>
+          <!-- Primarycare Center Visits -->
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base"
+          >
+            <td class="font-medium">
+              إجمالي زيارات مراكز الرعاية الأولية  
+              <div class="relative inline-block group">
+                <button class="inline-flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 text-xs sm:text-sm border border-blue-200 rounded-full text-blue-600 cursor-pointer">
+                  i
+                </button>
+                <div class="hidden group-hover:block group-focus-within:block absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap">
+                  مرحبًا، هذا 5
+                </div>
+              </div>
+            </td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+            <td class="">NA</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</main>
+</div>
+</div>
+
+
+  <!-- 3rd row Patient Experience Score -->
+  <div
+  class="flex flex-col border border-light rounded-2xl p-4 bg-white shadow-sm shadow-black/30 gap-6 w-full"
+>
+  <h3 class="font-semibold text-lg">تقييم تجربة المرضى</h3>
+  <span class="text-sm text-gray-400 text-start leading-4">
+    لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إليت. إيبسوم
+    ريكوساندي نيسي أبرم فيتاي إيبسام إنيم إيروم إيرور، إيست وولتباتي سونت
+    بيتاي مينما ماغني أسومندا أومنس لابور إيا دوكيموس أندي!
+    نيكيستاتيبوس أوديت دولور، أبرم أوتيم مينوس نام إيمبيديت كيوبيديتاتي
+    إيستي إيوستو ديغنيزيموس دولوريس ليبيرو دولوروم إيوس كولبا نوستروم، بلاسيات
+    كو بلانديتييس أليكام هاروم فيتاي فيوجيات، تينيتور فيريتاتيس توتام؟ إينيم
+    ليبيرو فيل كوييديم فاكير كوميكي دولور، بارياتور إيبسوم وولتباتي
+    سيمليك إيرور لابوروم.
+  </span>
+</div>
+  </div>
+</div>
 
 {% endblock %}

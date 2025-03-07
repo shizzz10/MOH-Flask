@@ -57,6 +57,51 @@ def update_facility():
 def view_facility():
     return render_template('view-facility.html')
 
+@app.route('/hospital_facility')
+@login_required
+def hospital_facility():
+    return render_template('hospital_facility.html')
+
+@app.route('/public_complex_facility')
+@login_required
+def public_complex_facility():
+    return render_template('public_complex_facility.html')
+
+@app.route('/private_complex_facility')
+@login_required
+def private_complex_facility():
+    return render_template('private_complex_facility.html')
+
+@app.route('/optic_facility')
+@login_required
+def optic_facility():
+    return render_template('optic_facility.html')
+
+@app.route('/pharmacy_facility')
+@login_required
+def pharmacy_facility():
+    return render_template('pharmacy_facility.html')
+
+@app.route('/dental_facility')
+@login_required
+def dental_facility():
+    return render_template('dental_facility.html')
+
+@app.route('/laboratories_facility')
+@login_required
+def laboratories_facility():
+    return render_template('laboratories_facility.html')
+
+@app.route('/support_services_facility')
+@login_required
+def support_services_facility():
+    return render_template('support_services_facility.html')
+
+@app.route('/eg')
+@login_required
+def eg():
+    return render_template('eg.html')
+
 # Logout route
 @app.route('/logout')
 @login_required
