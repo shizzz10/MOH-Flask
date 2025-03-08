@@ -13,17 +13,17 @@
         <img src="{{ url_for('static', filename='assets/MOHlogo.png') }}" alt="qjs logo" class="w-20" />
         <div class="flex flex-col">
           <h2 class="text-sm sm:text-base text-darkmain font-bold w-fit leading-4 sm:leading-6 lg:text-lg">
-            <span class="hidden lg:flex">Private Hospitals List | Ministry of Health (Saudi Arabia)</span>
-            <span class="flex lg:hidden">Private Hospitals List | Ministry of Health (Saudi Arabia)</span>
+            <span class="hidden lg:flex">       منصة جودة خدمات الصحة في القطاع الخاص - فرع وزارة الصح في الطائف</span>
+            <span class="flex lg:hidden">       منصة جودة خدمات الصحة في القطاع الخاص - فرع وزارة الصح في الطائف</span>
           </h2>
-          <span class="text-xs sm:text-sm lg:text-base text-lightmain text-center font-medium">Taif Region</span>
+          <span class="text-xs sm:text-sm lg:text-base text-lightmain text-center font-medium">منطقة الطائف</span>
         </div>
       </a>
 
       <form action="{{ url_for('login') }}" method="POST" class="flex flex-col gap-3 rounded-xl w-full bg-darkmain p-4 py-7 lg:p-10 shadow-md shadow-[#0d8c60]/60">
         {{ form.hidden_tag() }}
         <div class="flex flex-col gap-7 w-full">
-          <h3 class="text-lg sm:text-xl lg:text-2xl text-white font-semibold pl-1">Sign In</h3>
+          <h3 class="text-lg sm:text-xl lg:text-2xl text-white font-semibold pl-1">Sign In/تسجيل الدخول</h3>
           <div class="flex flex-col gap-4 sm:gap-5">
             <!-- User Name -->
             <div class="flex flex-col gap-0.5 w-full">
@@ -33,7 +33,7 @@
                 id="username"
                 type="text"
                 class="border w-full rounded-full text-sm px-2 sm:px-3 lg:px-4 py-3 sm:py-3.5 lg:py-4 bg-white focus:border-white shadow-sm sm:text-base lg:text-lg shadow-[#958a5f]/50 font-medium"
-                placeholder="Username"
+                placeholder="Username/Username"
               />
               {% if form.username.errors %}
                 <span class="c-text-xs text-red-600 sm:text-xs pl-3">{{ form.username.errors[0] }}</span>
@@ -50,7 +50,7 @@
                 id="pass"
                 type="password"
                 class="border w-full rounded-full text-sm px-2 sm:px-3 lg:px-4 py-3 sm:py-3.5 lg:py-4 bg-white focus:border-white shadow-sm sm:text-base lg:text-lg shadow-[#958a5f]/50 font-medium"
-                placeholder="Password"
+                placeholder="Password/كلمة المرور"
               />
               {% if form.password.errors %}
                 <span class="c-text-xs text-red-600 sm:text-xs pl-3">{{ form.password.errors[0] }}</span>
@@ -69,7 +69,7 @@
               type="submit"
               class="px-4 py-2 lg:py-3 m-btn-white text-base sm:text-lg lg:text-xl lg:font-bold rounded-full shadow-sm bg-white hover:bg-transparent border text-darkmain border-light hover:text-white shadow-[#958a5f]/15 font-semibold"
             >
-              Sign In
+              Sign In/تسجيل الدخول
             </button>
 
             <!-- Page Error -->
